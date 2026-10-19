@@ -19,6 +19,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Great+Vibes&family=Noto+Serif+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" as="image" href="assets/entry-poster.jpg">
     <link rel="preload" as="video" href="assets/entry-video.mp4">
     <link rel="preload" as="audio" href="assets/bg-audio.mp3">
     
@@ -723,8 +724,8 @@
 
 <!-- Entry Gate with Video -->
 <div id="entry-gate">
-    <video id="entry-video" playsinline webkit-playsinline muted preload="auto" disablePictureInPicture>
-        <source src="assets/entry-video.mp4#t=0.001" type="video/mp4">
+    <video id="entry-video" playsinline webkit-playsinline x5-playsinline muted preload="auto" poster="assets/entry-poster.jpg" disablePictureInPicture>
+        <source src="assets/entry-video.mp4" type="video/mp4">
     </video>
     <div id="play-overlay"></div>
 </div>
@@ -1491,7 +1492,6 @@ function handleGateClick(e) {
 
         // 2. Play intro video completely
         entryVideo.muted = true;
-        entryVideo.currentTime = 0;
         const playPromise = entryVideo.play();
         if (playPromise !== undefined) {
             playPromise.catch(() => {
@@ -1499,17 +1499,14 @@ function handleGateClick(e) {
             });
         }
 
-        // Safety fallback: only if video duration is reached or max 15 seconds
-        const fallbackMs = (entryVideo.duration && !isNaN(entryVideo.duration) && entryVideo.duration > 0)
-            ? (entryVideo.duration * 1000) + 500
-            : 15000;
+        // Fast fallback: video is ~4.96s, so 5.5s timeout guarantees it never stays stuck
         setTimeout(() => {
             if (!mainRevealed) revealMain();
-        }, fallbackMs);
+        }, 5500);
         return;
     }
 
-    // If user taps again while video is playing (after 1.5s), allow skipping smoothly
+    // If user taps again while video is playing, allow skipping smoothly
     if (gateOpened && !mainRevealed) {
         revealMain();
     }
@@ -1517,6 +1514,7 @@ function handleGateClick(e) {
 
 gate.addEventListener('click', handleGateClick);
 entryVideo.addEventListener('ended', revealMain);
+entryVideo.addEventListener('stalled', () => { if (!mainRevealed) setTimeout(revealMain, 1000); });
 entryVideo.addEventListener('error', () => { if (!mainRevealed) setTimeout(revealMain, 400); });
 document.body.style.overflow = 'hidden';
 
