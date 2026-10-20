@@ -168,6 +168,181 @@
         #audio-btn svg { width: 22px; height: 22px; }
 
         /* ============================================================
+           LUXURY GLASSMORPHISM LANGUAGE DROPDOWN
+        ============================================================ */
+        /* ============================================================
+           COMPACT LUXURY GLASSMORPHISM LANGUAGE DROPDOWN
+        ============================================================ */
+        .lang-dropdown-wrap {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            z-index: 1000;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+        .lang-toggle-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            background: rgba(255, 253, 248, 0.75);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border: 1.2px solid rgba(201, 150, 62, 0.45);
+            border-radius: 9999px;
+            padding: 0.36rem 0.72rem;
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--terra-dark);
+            cursor: pointer;
+            box-shadow: 0 4px 16px rgba(92, 34, 51, 0.1), 0 0 12px rgba(201, 150, 62, 0.12);
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        body:not(.light-theme) .lang-toggle-btn {
+            background: rgba(33, 23, 37, 0.8);
+            border-color: rgba(224, 168, 70, 0.45);
+            color: var(--gold-light);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+        }
+        .lang-toggle-btn:hover {
+            transform: translateY(-1px);
+            border-color: var(--terracotta);
+            box-shadow: 0 6px 20px rgba(184, 89, 64, 0.25);
+        }
+        .lang-toggle-btn:active {
+            transform: scale(0.96);
+        }
+        .lang-globe-icon {
+            color: var(--terracotta);
+            width: 14px;
+            height: 14px;
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+        }
+        .lang-toggle-btn:hover .lang-globe-icon {
+            transform: rotate(25deg);
+        }
+        #current-lang-text {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 0.86rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            line-height: 1;
+        }
+        .lang-chevron-icon {
+            color: var(--gold);
+            width: 10px;
+            height: 10px;
+            flex-shrink: 0;
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .lang-dropdown-wrap.open .lang-chevron-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Glassmorphism Dropdown Menu (Opens Downwards) */
+        .lang-dropdown-menu {
+            position: absolute;
+            top: calc(100% + 6px);
+            right: 0;
+            width: 180px;
+            background: rgba(255, 253, 248, 0.82);
+            backdrop-filter: blur(24px) saturate(190%);
+            -webkit-backdrop-filter: blur(24px) saturate(190%);
+            border: 1.2px solid rgba(201, 150, 62, 0.4);
+            border-radius: 1.1rem;
+            box-shadow: 0 16px 40px -6px rgba(92, 34, 51, 0.22), 0 0 20px rgba(201, 150, 62, 0.14);
+            padding: 0.4rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-8px) scale(0.96);
+            transform-origin: top right;
+            transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1), transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.22s;
+            pointer-events: none;
+        }
+        body:not(.light-theme) .lang-dropdown-menu {
+            background: rgba(33, 23, 37, 0.88);
+            border-color: rgba(224, 168, 70, 0.4);
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.65);
+        }
+        .lang-dropdown-wrap.open .lang-dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1);
+            pointer-events: auto;
+        }
+        .lang-opt-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            width: 100%;
+            background: transparent;
+            border: none;
+            border-radius: 0.75rem;
+            padding: 0.5rem 0.65rem;
+            cursor: pointer;
+            transition: all 0.18s ease;
+            text-align: left;
+        }
+        .lang-opt-item:hover {
+            background: rgba(184, 89, 64, 0.12);
+            transform: translateX(2px);
+        }
+        .lang-code-badge {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 0.15rem 0.4rem;
+            border-radius: 0.4rem;
+            background: rgba(184, 89, 64, 0.1);
+            color: var(--terracotta);
+            flex-shrink: 0;
+        }
+        body:not(.light-theme) .lang-code-badge {
+            background: rgba(224, 168, 70, 0.15);
+            color: var(--gold-light);
+        }
+        .lang-opt-name {
+            font-family: 'Noto Serif Devanagari', 'Cormorant Garamond', Georgia, serif;
+            font-size: 0.92rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            flex: 1;
+        }
+        .lang-opt-check {
+            font-size: 0.8rem;
+            opacity: 0;
+            transform: scale(0.6);
+            transition: all 0.18s ease;
+            color: var(--terracotta);
+            margin-left: auto;
+        }
+        .lang-opt-item.active {
+            background: var(--terracotta);
+        }
+        .lang-opt-item.active .lang-code-badge {
+            background: rgba(255, 255, 255, 0.25);
+            color: #ffffff;
+        }
+        .lang-opt-item.active .lang-opt-name {
+            color: #ffffff !important;
+            font-weight: 700;
+        }
+        .lang-opt-item.active .lang-opt-check {
+            opacity: 1;
+            transform: scale(1);
+            color: #ffffff;
+        }
+
+        /* ============================================================
            ORNAMENTAL DIVIDER & SECTION LABEL
         ============================================================ */
         .ornament { display: flex; align-items: center; justify-content: center; gap: 1rem; margin: 0 auto; }
@@ -504,6 +679,130 @@
         .memory-empty { height: 100%; display: grid; place-items: center; padding: 2rem; text-align: center; color: var(--text-light); font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-style: italic; background: rgba(255,255,255,0.45); }
 
         /* ============================================================
+           FAMILY DETAILS (Single Royal Card Under Wardrobe)
+        ============================================================ */
+        #family-section {
+            padding: 5rem 1.5rem;
+            background: var(--cream-2);
+            position: relative;
+        }
+        .single-family-frame {
+            max-width: 680px;
+            margin: 2.5rem auto 0;
+            background: rgba(36, 25, 39, 0.92);
+            border: 1px solid var(--border);
+            border-radius: 2rem;
+            padding: clamp(2.5rem, 6vw, 3.5rem) clamp(1.5rem, 5vw, 3rem);
+            box-shadow: var(--shadow-warm), 0 0 35px rgba(224,168,70,0.12);
+            position: relative;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        body.light-theme .single-family-frame {
+            background: var(--white);
+            border: 1px solid rgba(201, 150, 62, 0.35);
+            box-shadow: 0 16px 50px -10px rgba(92, 34, 51, 0.1);
+        }
+        .family-single-branch {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .family-branch-badge {
+            display: inline-block;
+            font-family: 'Noto Serif Devanagari', 'Cormorant Garamond', Georgia, serif;
+            font-weight: 700;
+            font-size: 0.78rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--terracotta);
+            background: rgba(184, 89, 64, 0.08);
+            padding: 0.35rem 1.1rem;
+            border-radius: 9999px;
+            margin-bottom: 0.5rem;
+            border: 1px solid rgba(184, 89, 64, 0.22);
+        }
+        .family-single-name {
+            font-family: 'Alex Brush', cursive;
+            font-size: clamp(3.2rem, 9vw, 4.4rem);
+            line-height: 1.05;
+            margin-bottom: 0.4rem;
+        }
+        .family-single-parents {
+            font-family: 'Noto Serif Devanagari', 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            color: var(--text-dark);
+            font-weight: 600;
+            line-height: 1.4;
+        }
+        .family-single-parents strong {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-right: 0.35rem;
+        }
+        .family-single-blessings {
+            font-family: 'Noto Serif Devanagari', 'Cormorant Garamond', serif;
+            font-size: 1.05rem;
+            color: var(--text-mid);
+            font-style: italic;
+            margin-top: 0.2rem;
+        }
+        .family-single-blessings em {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            font-size: 0.8rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--terra-dark);
+            font-style: normal;
+            margin-right: 0.3rem;
+        }
+        .family-single-relatives {
+            font-family: 'Noto Serif Devanagari', 'Cormorant Garamond', serif;
+            font-size: 1.05rem;
+            color: var(--text-light);
+            margin-top: 0.15rem;
+        }
+        .family-single-hometown {
+            font-family: 'Noto Serif Devanagari', 'Cormorant Garamond', serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            color: var(--gold);
+            margin-top: 0.4rem;
+            display: inline-block;
+            border-bottom: 1px dotted rgba(201, 150, 62, 0.4);
+            padding-bottom: 2px;
+        }
+        .family-center-ampersand {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.25rem;
+            margin: 1.75rem 0;
+            width: 100%;
+        }
+        .family-center-ampersand .ampersand-line {
+            height: 1px;
+            width: 65px;
+            background: linear-gradient(to right, transparent, var(--gold), transparent);
+        }
+        .family-center-ampersand .ampersand {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.5rem;
+            color: var(--gold);
+            line-height: 1;
+        }
+
+        /* ============================================================
            WEDDING FUNCTIONS & EVENTS
         ============================================================ */
         #events-section { padding: 5rem 1.5rem; background: var(--cream); }
@@ -720,6 +1019,43 @@
     </svg>
 </button>
 
+<!-- Floating Glassmorphism Language Dropdown -->
+<div id="lang-dropdown-wrap" class="lang-dropdown-wrap">
+    <button type="button" id="lang-toggle-btn" class="lang-toggle-btn" aria-haspopup="true" aria-expanded="false" aria-label="Select Language">
+        <svg class="lang-globe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="2" y1="12" x2="22" y2="12"></line>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+        </svg>
+        <span id="current-lang-text">ENG</span>
+        <svg class="lang-chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6">
+            <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+    </button>
+    <div id="lang-dropdown-menu" class="lang-dropdown-menu" role="menu">
+        <button type="button" class="lang-opt-item active" data-lang="en" role="menuitem">
+            <span class="lang-code-badge">ENG</span>
+            <span class="lang-opt-name">English</span>
+            <span class="lang-opt-check">✓</span>
+        </button>
+        <button type="button" class="lang-opt-item" data-lang="hi" role="menuitem">
+            <span class="lang-code-badge">HIN</span>
+            <span class="lang-opt-name">हिन्दी</span>
+            <span class="lang-opt-check">✓</span>
+        </button>
+        <button type="button" class="lang-opt-item" data-lang="gu" role="menuitem">
+            <span class="lang-code-badge">GUJ</span>
+            <span class="lang-opt-name">ગુજરાતી</span>
+            <span class="lang-opt-check">✓</span>
+        </button>
+        <button type="button" class="lang-opt-item" data-lang="raj" role="menuitem">
+            <span class="lang-code-badge">RAJ</span>
+            <span class="lang-opt-name">राजस्थानी</span>
+            <span class="lang-opt-check">✓</span>
+        </button>
+    </div>
+</div>
+
 <!-- Entry Gate with Video -->
 <div id="entry-gate">
     <video id="entry-video" playsinline webkit-playsinline x5-playsinline muted preload="auto" poster="assets/entry-poster.jpg" disablePictureInPicture>
@@ -755,7 +1091,7 @@
                 </div>
             </div>
 
-            <p class="blessings-text">
+            <p class="blessings-text" data-i18n="hero_blessings">
                 With the blessings of the Almighty & our respected elders,<br>
                 we joyfully request your gracious presence for the wedding celebration of
             </p>
@@ -763,7 +1099,7 @@
             <!-- Bride Block -->
             <div class="couple-block">
                 <span class="couple-name shimmer-gold">Shivani</span>
-                <p class="family-line">Daughter of Smt. Shashi & Shri Jitendra Jain</p>
+                <p class="family-line" data-i18n="bride_family">Daughter of Smt. Shashi & Shri Jitendra Jain</p>
             </div>
 
             <!-- Ampersand -->
@@ -776,12 +1112,12 @@
             <!-- Groom Block -->
             <div class="couple-block">
                 <span class="couple-name shimmer-gold">Atishay</span>
-                <p class="family-line">Son of Smt. Kamlesh & Shri Ravindra Jain</p>
+                <p class="family-line" data-i18n="groom_family">Son of Smt. Kamlesh & Shri Ravindra Jain</p>
             </div>
         </div>
 
         <div class="scroll-cue">
-            <p>Scroll to Reveal</p>
+            <p data-i18n="scroll_cue">Scroll to Reveal</p>
             <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
         </div>
     </section>
@@ -789,15 +1125,15 @@
     <!-- SCRATCH TO REVEAL SECTION -->
     <section id="scratch-reveal-section">
         <div class="text-center reveal">
-            <span class="section-label">Save The Date</span>
-            <h2 class="section-heading" style="color:var(--terracotta)">Reveal Our<br>Big Day</h2>
-            <p class="reveal reveal-delay-2 mt-4" style="font-style:italic;color:var(--text-light);font-size:1.15rem;margin-bottom:1rem;">Scratch the hearts to reveal</p>
+            <span class="section-label" data-i18n="scratch_badge">Save The Date</span>
+            <h2 class="section-heading" style="color:var(--terracotta)" data-i18n="scratch_heading">Reveal Our<br>Big Day</h2>
+            <p class="reveal reveal-delay-2 mt-4" style="font-style:italic;color:var(--text-light);font-size:1.15rem;margin-bottom:1rem;" data-i18n="scratch_instruct">Scratch the hearts to reveal</p>
         </div>
 
         <div class="hearts-row reveal reveal-delay-2" id="heartsRow">
             <div class="heart-container" id="heartContainer1">
                 <div class="hidden-content">
-                    <span class="label">DAY</span>
+                    <span class="label" data-i18n="label_day">DAY</span>
                     <span class="value">30</span>
                 </div>
                 <canvas id="scratchCanvas1" class="scratch-canvas"></canvas>
@@ -805,15 +1141,15 @@
 
             <div class="heart-container" id="heartContainer2">
                 <div class="hidden-content">
-                    <span class="label">MONTH</span>
-                    <span class="value">Nov</span>
+                    <span class="label" data-i18n="label_month">MONTH</span>
+                    <span class="value" data-i18n="val_month">Nov</span>
                 </div>
                 <canvas id="scratchCanvas2" class="scratch-canvas"></canvas>
             </div>
 
             <div class="heart-container" id="heartContainer3">
                 <div class="hidden-content">
-                    <span class="label">YEAR</span>
+                    <span class="label" data-i18n="label_year">YEAR</span>
                     <span class="value">2026</span>
                 </div>
                 <canvas id="scratchCanvas3" class="scratch-canvas"></canvas>
@@ -821,15 +1157,15 @@
         </div>
         
         <div class="text-center">
-            <div id="surpriseMessage" class="surprise-message">
+            <div id="surpriseMessage" class="surprise-message" data-i18n="surprise_msg">
                 Shivani & Atishay · The start of our forever...
             </div>
             
             <div id="countdown-container" class="countdown-container">
-                <div class="cd-item"><span id="cd-days">00</span><small>Days</small></div>
-                <div class="cd-item"><span id="cd-hours">00</span><small>Hrs</small></div>
-                <div class="cd-item"><span id="cd-mins">00</span><small>Mins</small></div>
-                <div class="cd-item"><span id="cd-secs">00</span><small>Secs</small></div>
+                <div class="cd-item"><span id="cd-days">00</span><small data-i18n="cd_days">Days</small></div>
+                <div class="cd-item"><span id="cd-hours">00</span><small data-i18n="cd_hours">Hrs</small></div>
+                <div class="cd-item"><span id="cd-mins">00</span><small data-i18n="cd_mins">Mins</small></div>
+                <div class="cd-item"><span id="cd-secs">00</span><small data-i18n="cd_secs">Secs</small></div>
             </div>
         </div>
     </section>
@@ -837,14 +1173,14 @@
     <!-- MEMORIES GALLERY SLIDER -->
     <section id="memories-section">
         <div class="text-center reveal">
-            <span class="section-label">A Glimpse of Us</span>
-            <h2 class="section-heading" style="color:var(--terracotta)">Our Beautiful<br>Moments</h2>
+            <span class="section-label" data-i18n="memories_badge">A Glimpse of Us</span>
+            <h2 class="section-heading" style="color:var(--terracotta)" data-i18n="memories_heading">Our Beautiful<br>Moments</h2>
             <div class="ornament mt-4">
                 <div class="ornament-line rev"></div>
                 <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24" style="color:var(--gold)"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
                 <div class="ornament-line"></div>
             </div>
-            <p class="reveal reveal-delay-1 mt-4" style="font-style:italic;color:var(--text-light);font-size:1.05rem;">
+            <p class="reveal reveal-delay-1 mt-4" style="font-style:italic;color:var(--text-light);font-size:1.05rem;" data-i18n="memories_tap">
                 Tap to shower love 💖
             </p>
         </div>
@@ -855,8 +1191,8 @@
 
             <div class="memories-inner" id="memories-interactive-card">
                 <div class="couple-box-content">
-                    <div class="couple-box-badge">✨ Sacred Union ✨</div>
-                    <h3 class="couple-box-title">Couple Images</h3>
+                    <div class="couple-box-badge" data-i18n="couple_badge">✨ Sacred Union ✨</div>
+                    <h3 class="couple-box-title" data-i18n="couple_images">Couple Images</h3>
                     <p class="couple-box-subtitle">Shivani &amp; Atishay</p>
                     <div class="ornament mt-4" style="margin-top:1.25rem;">
                         <div class="ornament-line rev"></div>
@@ -870,7 +1206,7 @@
         <!-- Interactive Shower Love Counter -->
         <div class="love-counter-wrap reveal reveal-delay-3">
             <button class="love-counter-btn" id="shower-love-btn">
-                <span>❤️ Shower Love</span>
+                <span data-i18n="shower_love">❤️ Shower Love</span>
                 <strong id="loveCount">128</strong>
             </button>
         </div>
@@ -879,8 +1215,8 @@
     <!-- SACRED CEREMONIES & EVENTS -->
     <section id="events-section">
         <div class="text-center reveal" style="margin-bottom:3rem;">
-            <span class="section-label">The Celebration Unfolds</span>
-            <h2 class="section-heading" style="color:var(--terracotta)">Wedding<br>Functions</h2>
+            <span class="section-label" data-i18n="events_badge">The Celebration Unfolds</span>
+            <h2 class="section-heading" style="color:var(--terracotta)" data-i18n="events_heading">Wedding<br>Functions</h2>
             <div class="ornament mt-4">
                 <div class="ornament-line rev"></div>
                 <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24" style="color:var(--gold)"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
@@ -891,17 +1227,17 @@
         <!-- Function 1: Ring Ceremony -->
         <div class="event-block reveal">
             <div class="text-center mb-4">
-                <p class="event-subtitle">November 29, 2026 | 11:30 AM</p>
-                <h3 class="event-tag-title">Ring Ceremony</h3>
+                <p class="event-subtitle" data-i18n="ev1_sub">November 29, 2026 | 11:30 AM</p>
+                <h3 class="event-tag-title" data-i18n="ev1_title">Ring Ceremony</h3>
             </div>
             <div class="event-media-wrap">
                 <img src="assets/ring-ceremony-final.png" alt="Ring Ceremony" loading="eager">
             </div>
             <div class="event-venue-card reveal reveal-delay-1">
-                <span class="event-venue-name">Venue: Bandhavgarh Tiger Resort, Bandhavgarh, Umaria (M.P.)</span>
+                <span class="event-venue-name" data-i18n="venue_text">Venue: Bandhavgarh Tiger Resort, Bandhavgarh, Umaria (M.P.)</span>
                 <a class="event-dir-btn" href="https://www.google.com/maps/search/?api=1&query=Bandhavgarh+Tiger+Resort+Bandhavgarh+Umaria+MP" target="_blank" rel="noopener noreferrer">
                     <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                    View on Maps
+                    <span data-i18n="view_maps">View on Maps</span>
                 </a>
             </div>
         </div>
@@ -910,17 +1246,17 @@
         <!-- Function 2: Haldi & Happiness Carnival -->
         <div class="event-block reveal">
             <div class="text-center mb-4">
-                <p class="event-subtitle">November 29, 2026 | 1:00 PM</p>
-                <h3 class="event-tag-title">Haldi & Happiness Carnival</h3>
+                <p class="event-subtitle" data-i18n="ev2_sub">November 29, 2026 | 1:00 PM</p>
+                <h3 class="event-tag-title" data-i18n="ev2_title">Haldi & Happiness Carnival</h3>
             </div>
             <div class="event-media-wrap">
                 <img src="assets/haldi-final.png" alt="Haldi and Happiness Carnival" loading="eager">
             </div>
             <div class="event-venue-card reveal reveal-delay-1">
-                <span class="event-venue-name">Venue: Bandhavgarh Tiger Resort, Bandhavgarh, Umaria (M.P.)</span>
+                <span class="event-venue-name" data-i18n="venue_text">Venue: Bandhavgarh Tiger Resort, Bandhavgarh, Umaria (M.P.)</span>
                 <a class="event-dir-btn" href="https://www.google.com/maps/search/?api=1&query=Bandhavgarh+Tiger+Resort+Bandhavgarh+Umaria+MP" target="_blank" rel="noopener noreferrer">
                     <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                    View on Maps
+                    <span data-i18n="view_maps">View on Maps</span>
                 </a>
             </div>
         </div>
@@ -929,17 +1265,17 @@
         <!-- Function 3: The Grand Sangeet Affair -->
         <div class="event-block reveal">
             <div class="text-center mb-4">
-                <p class="event-subtitle">November 29, 2026 | 7:00 PM</p>
-                <h3 class="event-tag-title">The Grand Sangeet Affair</h3>
+                <p class="event-subtitle" data-i18n="ev3_sub">November 29, 2026 | 7:00 PM</p>
+                <h3 class="event-tag-title" data-i18n="ev3_title">The Grand Sangeet Affair</h3>
             </div>
             <div class="event-media-wrap">
                 <img src="assets/sangeet-final.png" alt="The Grand Sangeet Affair" loading="eager">
             </div>
             <div class="event-venue-card reveal reveal-delay-1">
-                <span class="event-venue-name">Venue: Bandhavgarh Tiger Resort, Bandhavgarh, Umaria (M.P.)</span>
+                <span class="event-venue-name" data-i18n="venue_text">Venue: Bandhavgarh Tiger Resort, Bandhavgarh, Umaria (M.P.)</span>
                 <a class="event-dir-btn" href="https://www.google.com/maps/search/?api=1&query=Bandhavgarh+Tiger+Resort+Bandhavgarh+Umaria+MP" target="_blank" rel="noopener noreferrer">
                     <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                    View on Maps
+                    <span data-i18n="view_maps">View on Maps</span>
                 </a>
             </div>
         </div>
@@ -948,17 +1284,17 @@
         <!-- Function 4: Baarat, One Forever & The Grand Reception -->
         <div class="event-block reveal">
             <div class="text-center mb-4">
-                <p class="event-subtitle">November 30, 2026 | 11:30 AM Onwards</p>
-                <h3 class="event-tag-title">Baarat, One Forever & Reception</h3>
+                <p class="event-subtitle" data-i18n="ev4_sub">November 30, 2026 | 11:30 AM Onwards</p>
+                <h3 class="event-tag-title" data-i18n="ev4_title">Baarat, One Forever & Reception</h3>
             </div>
             <div class="event-media-wrap">
                 <img src="assets/wedding-final.png" alt="Wedding Ceremony and Reception" loading="eager">
             </div>
             <div class="event-venue-card reveal reveal-delay-1">
-                <span class="event-venue-name">Venue: Bandhavgarh Tiger Resort, Bandhavgarh, Umaria (M.P.)</span>
+                <span class="event-venue-name" data-i18n="venue_text">Venue: Bandhavgarh Tiger Resort, Bandhavgarh, Umaria (M.P.)</span>
                 <a class="event-dir-btn" href="https://www.google.com/maps/search/?api=1&query=Bandhavgarh+Tiger+Resort+Bandhavgarh+Umaria+MP" target="_blank" rel="noopener noreferrer">
                     <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                    View on Maps
+                    <span data-i18n="view_maps">View on Maps</span>
                 </a>
             </div>
         </div>
@@ -967,9 +1303,9 @@
     <!-- WARDROBE PLANNER -->
     <section id="wardrobe-section">
         <div class="text-center reveal">
-            <span class="section-label">Dress The Part</span>
-            <h2 class="section-heading" style="color:var(--terracotta)">Wardrobe<br>Planner</h2>
-            <p class="reveal reveal-delay-2 mt-4" style="font-style:italic;color:var(--text-light);font-size:1.15rem;margin-bottom:1rem;">A curated style guide for our celebrations</p>
+            <span class="section-label" data-i18n="wardrobe_badge">Dress The Part</span>
+            <h2 class="section-heading" style="color:var(--terracotta)" data-i18n="wardrobe_heading">Wardrobe<br>Planner</h2>
+            <p class="reveal reveal-delay-2 mt-4" style="font-style:italic;color:var(--text-light);font-size:1.15rem;margin-bottom:1rem;" data-i18n="wardrobe_sub">A curated style guide for our celebrations</p>
         </div>
 
         <div class="wardrobe-frame reveal reveal-delay-2">
@@ -977,63 +1313,113 @@
         </div>
     </section>
 
+    <!-- FAMILY DETAILS SECTION (Single Cursive Royal Card) -->
+    <section id="family-section">
+        <div class="text-center reveal" style="margin-bottom:2.5rem;">
+            <span class="section-label" data-i18n="family_badge">Roots &amp; Blessings</span>
+            <h2 class="section-heading" style="color:var(--terracotta)" data-i18n="family_heading">Our Families</h2>
+            <div class="ornament mt-4">
+                <div class="ornament-line rev"></div>
+                <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24" style="color:var(--gold)"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+                <div class="ornament-line"></div>
+            </div>
+            <p class="reveal reveal-delay-1 mt-4 family-sub-quote" data-i18n="family_subtext">
+                "Two families united in sacred values, guided by the timeless blessings of our elders."
+            </p>
+        </div>
+
+        <div class="single-family-frame reveal reveal-delay-2">
+            <div class="card-corner tl"></div>
+            <div class="card-corner tr"></div>
+            <div class="card-corner bl"></div>
+            <div class="card-corner br"></div>
+
+            <!-- Bride Side -->
+            <div class="family-single-branch">
+                <span class="family-branch-badge" data-i18n="bride_side_badge">वधु पक्ष · Bride's Family</span>
+                <span class="family-single-name shimmer-gold">Shivani</span>
+                <p class="family-single-parents"><strong data-i18n="parents_label">Parents:</strong> <span data-i18n="bride_parents">Smt. Shashi &amp; Shri Jitendra Jain</span></p>
+                <p class="family-single-blessings"><em data-i18n="blessings_from_label">With Blessings of:</em> <span data-i18n="bride_elders">Respected Grandparents &amp; Elders</span></p>
+                <p class="family-single-relatives"><span data-i18n="bride_relatives">Brothers, Sisters &amp; Entire Jain Family</span></p>
+                <span class="family-single-hometown" data-i18n="bride_hometown">Bandhavgarh / Umaria (M.P.)</span>
+            </div>
+
+            <!-- Royal Ampersand Divider -->
+            <div class="family-center-ampersand">
+                <div class="ampersand-line"></div>
+                <span class="ampersand">&amp;</span>
+                <div class="ampersand-line"></div>
+            </div>
+
+            <!-- Groom Side -->
+            <div class="family-single-branch">
+                <span class="family-branch-badge" data-i18n="groom_side_badge">वर पक्ष · Groom's Family</span>
+                <span class="family-single-name shimmer-gold">Atishay</span>
+                <p class="family-single-parents"><strong data-i18n="parents_label">Parents:</strong> <span data-i18n="groom_parents">Smt. Kamlesh &amp; Shri Ravindra Jain</span></p>
+                <p class="family-single-blessings"><em data-i18n="blessings_from_label">With Blessings of:</em> <span data-i18n="groom_elders">Respected Grandparents &amp; Elders</span></p>
+                <p class="family-single-relatives"><span data-i18n="groom_relatives">Brothers, Sisters &amp; Entire Jain Family</span></p>
+                <span class="family-single-hometown" data-i18n="groom_hometown">Jabalpur / Bandhavgarh (M.P.)</span>
+            </div>
+        </div>
+    </section>
+
     <!-- RSVP SECTION -->
     <section id="rsvp-section">
         <div class="text-center reveal">
-            <span class="section-label">Join the Celebration</span>
-            <h2 class="section-heading" style="color:var(--terracotta)">Celebrate<br>With Us</h2>
-            <p class="reveal reveal-delay-2 mt-4" style="font-style:italic;color:var(--text-light);font-size:1.15rem;margin-bottom:2.5rem;">Please grace us with your love and presence!</p>
+            <span class="section-label" data-i18n="rsvp_badge">Join the Celebration</span>
+            <h2 class="section-heading" style="color:var(--terracotta)" data-i18n="rsvp_heading">Celebrate<br>With Us</h2>
+            <p class="reveal reveal-delay-2 mt-4" style="font-style:italic;color:var(--text-light);font-size:1.15rem;margin-bottom:2.5rem;" data-i18n="rsvp_sub">Please grace us with your love and presence!</p>
         </div>
 
         <form id="rsvp-form" class="rsvp-form">
             <div class="form-card reveal">
-                <p class="form-card-title">Guest Details</p>
+                <p class="form-card-title" data-i18n="card_guest">Guest Details</p>
                 <div class="field-group">
-                    <label class="field-label" for="f-name">Your Full Name</label>
+                    <label class="field-label" for="f-name" data-i18n="lbl_fullname">Your Full Name</label>
                     <input class="field-input" type="text" id="f-name" name="guestName" required placeholder="Enter full name" autocomplete="name">
                 </div>
                 <div class="field-group" style="margin-bottom:0;">
-                    <label class="field-label" for="f-phone">Mobile Number</label>
+                    <label class="field-label" for="f-phone" data-i18n="lbl_phone">Mobile Number</label>
                     <input class="field-input" type="tel" id="f-phone" name="mobileNumber" required placeholder="Enter 10-digit mobile number" autocomplete="tel">
                 </div>
             </div>
 
             <div class="form-card reveal reveal-delay-1">
-                <p class="form-card-title">Party & Meal Details</p>
-                <p class="form-card-subtitle">Help us ensure the most wonderful experience for you.</p>
+                <p class="form-card-title" data-i18n="card_party">Party & Meal Details</p>
+                <p class="form-card-subtitle" data-i18n="sub_party">Help us ensure the most wonderful experience for you.</p>
                 <div class="field-group">
-                    <label class="field-label" for="f-guests">Number of Guests</label>
+                    <label class="field-label" for="f-guests" data-i18n="lbl_guests">Number of Guests</label>
                     <input class="field-input" type="number" id="f-guests" name="familyGuestCount" min="1" max="25" step="1" required placeholder="Including yourself" inputmode="numeric">
                 </div>
                 <div class="field-group" style="margin-bottom:0;">
-                    <label class="field-label" for="f-meal">Meal Preference</label>
+                    <label class="field-label" for="f-meal" data-i18n="lbl_meal">Meal Preference</label>
                     <select class="field-input field-select" id="f-meal" name="mealPreference" required>
-                        <option value="" selected disabled>Select preference</option>
-                        <option value="Jain Pure Vegetarian">Jain Pure Vegetarian</option>
-                        <option value="Pure Vegetarian">Pure Vegetarian</option>
+                        <option value="" selected disabled data-i18n="opt_meal_select">Select preference</option>
+                        <option value="Jain Pure Vegetarian" data-i18n="opt_jain">Jain Pure Vegetarian</option>
+                        <option value="Pure Vegetarian" data-i18n="opt_pure">Pure Vegetarian</option>
                     </select>
                 </div>
             </div>
 
             <div class="form-card reveal reveal-delay-1" id="events-card">
-                <p class="form-card-title">Which Events Will You Attend?</p>
-                <p class="form-card-subtitle">Select all functions you will grace with your presence:</p>
+                <p class="form-card-title" data-i18n="card_events">Which Events Will You Attend?</p>
+                <p class="form-card-subtitle" data-i18n="sub_events">Select all functions you will grace with your presence:</p>
                 <div class="field-group">
                     <div class="checkbox-row">
                         <label class="checkbox-pill">
-                            <span>Ring Ceremony (29 Nov, 11:30 AM)</span>
+                            <span data-i18n="ev1_chk">Ring Ceremony (29 Nov, 11:30 AM)</span>
                             <input type="checkbox" name="events[]" value="Ring Ceremony" checked>
                         </label>
                         <label class="checkbox-pill">
-                            <span>Haldi & Happiness Carnival (29 Nov, 1 PM)</span>
+                            <span data-i18n="ev2_chk">Haldi & Happiness Carnival (29 Nov, 1 PM)</span>
                             <input type="checkbox" name="events[]" value="Haldi Carnival" checked>
                         </label>
                         <label class="checkbox-pill">
-                            <span>The Grand Sangeet Affair (29 Nov, 7 PM)</span>
+                            <span data-i18n="ev3_chk">The Grand Sangeet Affair (29 Nov, 7 PM)</span>
                             <input type="checkbox" name="events[]" value="Grand Sangeet" checked>
                         </label>
                         <label class="checkbox-pill">
-                            <span>Baarat, One Forever & Reception (30 Nov, 11:30 AM)</span>
+                            <span data-i18n="ev4_chk">Baarat, One Forever & Reception (30 Nov, 11:30 AM)</span>
                             <input type="checkbox" name="events[]" value="Baarat & Reception" checked>
                         </label>
                     </div>
@@ -1041,14 +1427,14 @@
             </div>
 
             <div class="form-card reveal reveal-delay-2">
-                <p class="form-card-title">Leave Us a Note / Blessings</p>
-                <p class="form-card-subtitle">Share your heartfelt wishes for Shivani & Atishay.</p>
+                <p class="form-card-title" data-i18n="card_note">Leave Us a Note / Blessings</p>
+                <p class="form-card-subtitle" data-i18n="sub_note">Share your heartfelt wishes for Shivani & Atishay.</p>
                 <textarea class="text-area" name="message" rows="3" placeholder="Write your warm wishes here..."></textarea>
             </div>
 
             <div class="reveal reveal-delay-3" style="margin-top:2rem;">
                 <button type="submit" class="submit-btn" id="submit-btn">
-                    <span id="btn-text">Send Love & RSVP</span>
+                    <span id="btn-text" data-i18n="submit_btn">Send Love & RSVP</span>
                     <svg id="btn-spinner" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;vertical-align:middle;margin-left:8px;" class="spin">
                         <circle cx="12" cy="12" r="10" stroke-opacity="0.25"/><path d="M12 2a10 10 0 0110 10" stroke-opacity="0.75"/>
                     </svg>
@@ -1070,10 +1456,10 @@
                 <span style="color:var(--gold-light);font-size:1.1rem;">♥</span>
                 <div style="height:1px;width:60px;background:var(--gold-light);"></div>
             </div>
-            <p style="font-style:italic;color:rgba(255,255,255,0.85);font-family:'Cormorant Garamond',serif;font-size:1.2rem;line-height:1.9;margin-top:2rem;padding:0 1.5rem;">
+            <p style="font-style:italic;color:rgba(255,255,255,0.85);font-family:'Cormorant Garamond',serif;font-size:1.2rem;line-height:1.9;margin-top:2rem;padding:0 1.5rem;" data-i18n="footer_quote">
                 Two families, one sacred love story.<br>Thank you for showering your blessings upon us.
             </p>
-            <p style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:0.85rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-top:1.5rem;">
+            <p style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:0.85rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-top:1.5rem;" data-i18n="footer_date">
                 30th November 2026 · Bandhavgarh Tiger Resort
             </p>
             <p style="font-style:italic;color:rgba(255,255,255,0.7);font-family:'Cormorant Garamond',serif;font-size:1.1rem;margin-top:0.75rem;">
@@ -1104,6 +1490,480 @@
 </div>
 
 <script>
+/* ================================================================
+   BILINGUAL TRANSLATIONS & LANGUAGE SWITCHER (English / हिन्दी)
+================================================================ */
+const TRANSLATIONS = {
+    en: {
+        hero_blessings: "With the blessings of the Almighty &amp; our respected elders,<br>we joyfully request your gracious presence for the wedding celebration of",
+        bride_family: "Daughter of Smt. Shashi &amp; Shri Jitendra Jain",
+        groom_family: "Son of Smt. Kamlesh &amp; Shri Ravindra Jain",
+        scroll_cue: "Scroll to Reveal",
+        scratch_badge: "Save The Date",
+        scratch_heading: "Reveal Our<br>Big Day",
+        scratch_instruct: "Scratch the hearts to reveal",
+        label_day: "DAY",
+        label_month: "MONTH",
+        label_year: "YEAR",
+        val_month: "Nov",
+        surprise_msg: "Shivani &amp; Atishay · The start of our forever...",
+        cd_days: "Days",
+        cd_hours: "Hrs",
+        cd_mins: "Mins",
+        cd_secs: "Secs",
+        memories_badge: "A Glimpse of Us",
+        memories_heading: "Our Beautiful<br>Moments",
+        memories_tap: "Tap to shower love 💖",
+        couple_badge: "✨ Sacred Union ✨",
+        couple_images: "Couple Images",
+        shower_love: "❤️ Shower Love",
+        family_badge: "Roots &amp; Blessings",
+        family_heading: "Our Families",
+        family_subtext: "\"Two families united in sacred values, guided by the timeless blessings of our elders.\"",
+        bride_side_badge: "वधु पक्ष · Bride's Family",
+        bride_label: "The Beloved Bride",
+        groom_side_badge: "वर पक्ष · Groom's Family",
+        groom_label: "The Dashing Groom",
+        parents_label: "Parents",
+        bride_parents: "Smt. Shashi &amp; Shri Jitendra Jain",
+        groom_parents: "Smt. Kamlesh &amp; Shri Ravindra Jain",
+        blessings_from_label: "Seeking Blessings Of",
+        bride_elders: "Respected Grandparents &amp; Elders",
+        groom_elders: "Respected Grandparents &amp; Elders",
+        near_dear_label: "Affectionate Near &amp; Dear",
+        bride_relatives: "Brothers, Sisters &amp; Entire Jain Family",
+        groom_relatives: "Brothers, Sisters &amp; Entire Jain Family",
+        hometown_label: "Hometown",
+        bride_hometown: "Bandhavgarh / Umaria (M.P.)",
+        groom_hometown: "Jabalpur / Bandhavgarh (M.P.)",
+        darshan_badge: "दर्शनाभिलाषी · With Best Compliments",
+        darshan_text: "समस्त जैन परिवार, रिश्तेदार एवं स्नेहीजन<br><span style=\"font-size:0.95em;opacity:0.85;\">(All near &amp; dear ones, relatives &amp; friends)</span>",
+        swagat_badge: "स्वागताकांक्षी · Warm Welcomers",
+        swagat_text: "समस्त परिवारजन<br><span style=\"font-size:0.95em;opacity:0.85;\">(Both Jain Families)</span>",
+        bal_badge: "बाल मनुहार (Little Welcomers)",
+        bal_text: "\"मेरी बुआ और चाचू की शादी में जलूल-जलूल आना! 👶❤️✨\"<br><small style=\"font-size:0.85rem;opacity:0.85;\">\"Kindly grace the wedding celebration of our beloved Bua &amp; Chachu!\"</small>",
+        events_badge: "The Celebration Unfolds",
+        events_heading: "Wedding<br>Functions",
+        ev1_sub: "November 29, 2026 | 11:30 AM",
+        ev1_title: "Ring Ceremony",
+        ev2_sub: "November 29, 2026 | 1:00 PM",
+        ev2_title: "Haldi &amp; Happiness Carnival",
+        ev3_sub: "November 29, 2026 | 7:00 PM",
+        ev3_title: "The Grand Sangeet Affair",
+        ev4_sub: "November 30, 2026 | 11:30 AM Onwards",
+        ev4_title: "Baarat, One Forever &amp; Reception",
+        venue_text: "Venue: Bandhavgarh Tiger Resort, Bandhavgarh, Umaria (M.P.)",
+        view_maps: "View on Maps",
+        wardrobe_badge: "Dress The Part",
+        wardrobe_heading: "Wardrobe<br>Planner",
+        wardrobe_sub: "A curated style guide for our celebrations",
+        rsvp_badge: "Join the Celebration",
+        rsvp_heading: "Celebrate<br>With Us",
+        rsvp_sub: "Please grace us with your love and presence!",
+        card_guest: "Guest Details",
+        lbl_fullname: "Your Full Name",
+        lbl_phone: "Mobile Number",
+        card_party: "Party &amp; Meal Details",
+        sub_party: "Help us ensure the most wonderful experience for you.",
+        lbl_guests: "Number of Guests",
+        lbl_meal: "Meal Preference",
+        opt_meal_select: "Select preference",
+        opt_jain: "Jain Pure Vegetarian",
+        opt_pure: "Pure Vegetarian",
+        card_events: "Which Events Will You Attend?",
+        sub_events: "Select all functions you will grace with your presence:",
+        ev1_chk: "Ring Ceremony (29 Nov, 11:30 AM)",
+        ev2_chk: "Haldi &amp; Happiness Carnival (29 Nov, 1 PM)",
+        ev3_chk: "The Grand Sangeet Affair (29 Nov, 7 PM)",
+        ev4_chk: "Baarat, One Forever &amp; Reception (30 Nov, 11:30 AM)",
+        card_note: "Leave Us a Note / Blessings",
+        sub_note: "Share your heartfelt wishes for Shivani &amp; Atishay.",
+        submit_btn: "Send Love &amp; RSVP",
+        footer_quote: "Two families, one sacred love story.<br>Thank you for showering your blessings upon us.",
+        footer_date: "30th November 2026 · Bandhavgarh Tiger Resort"
+    },
+    hi: {
+        hero_blessings: "परमपिता परमात्मा एवं पूज्य बुज़ुर्गों के असीम अनुग्रह से,<br>हम आपको हमारे प्रिय बच्चों के शुभ परिणय संस्कार में सादर आमंत्रित करते हैं।",
+        bride_family: "सुपुत्री: श्रीमती शशि एवं श्री जितेन्द्र जैन",
+        groom_family: "सुपुत्र: श्रीमती कमलेश एवं श्री रवीन्द्र जैन",
+        scroll_cue: "आगे देखने के लिए स्क्रॉल करें",
+        scratch_badge: "शुभ तिथि",
+        scratch_heading: "हमारे खास दिन<br>को जानिए",
+        scratch_instruct: "तारीख जानने के लिए दिलों को स्क्रैच करें",
+        label_day: "दिन",
+        label_month: "माह",
+        label_year: "वर्ष",
+        val_month: "नवंबर",
+        surprise_msg: "शिवानी एवं अतिशय · हमारे अनूठे सफर की शुरुआत...",
+        cd_days: "दिन",
+        cd_hours: "घंटे",
+        cd_mins: "मिनट",
+        cd_secs: "सेकंड",
+        memories_badge: "एक झलक हमारे सफर की",
+        memories_heading: "खूबसूरत<br>स्मृतियाँ",
+        memories_tap: "टैप करके प्यार बरसाएं 💖",
+        couple_badge: "✨ पावन परिणय ✨",
+        couple_images: "युगल छवि",
+        shower_love: "❤️ प्यार बरसाएं",
+        family_badge: "सस्नेह परिजन",
+        family_heading: "परिवार परिचय",
+        family_subtext: "\"दो परिवारों का पावन मिलन, बुज़ुर्गों के शुभाशीर्वाद से अलंकृत।\"",
+        bride_side_badge: "वधु पक्ष · जैन परिवार",
+        bride_label: "हमारी लाडली कन्या",
+        groom_side_badge: "वर पक्ष · जैन परिवार",
+        groom_label: "हमारे चिरंजीव वर",
+        parents_label: "माता-पिता",
+        bride_parents: "श्रीमती शशि एवं श्री जितेन्द्र जैन",
+        groom_parents: "श्रीमती कमलेश एवं श्री रवीन्द्र जैन",
+        blessings_from_label: "परम पूज्य आशीर्वाद",
+        bride_elders: "पूज्य दादाजी-दादीजी एवं समस्त बुज़ुर्गों के आशीर्वाद से",
+        groom_elders: "पूज्य दादाजी-दादीजी एवं समस्त बुज़ुर्गों के आशीर्वाद से",
+        near_dear_label: "स्नेही परिजन",
+        bride_relatives: "भाई-बहन एवं समस्त जैन परिवार",
+        groom_relatives: "भाई-बहन एवं समस्त जैन परिवार",
+        hometown_label: "निवास",
+        bride_hometown: "बांधवगढ़ / उमरिया (म.प्र.)",
+        groom_hometown: "जबलपुर / बांधवगढ़ (म.प्र.)",
+        darshan_badge: "दर्शनाभिलाषी",
+        darshan_text: "समस्त जैन परिवार, रिश्तेदार एवं स्नेहीजन",
+        swagat_badge: "स्वागताकांक्षी",
+        swagat_text: "समस्त परिवारजन",
+        bal_badge: "बाल मनुहार",
+        bal_text: "मेरी बुआ और चाचू की शादी में जलूल-जलूल आना! 👶❤️✨",
+        events_badge: "मांगलिक कार्यक्रम",
+        events_heading: "विवाह उत्सव",
+        ev1_sub: "२९ नवंबर २०२६ | प्रातः ११:३० बजे",
+        ev1_title: "मुद्रिका संस्कार (सगाई)",
+        ev2_sub: "२९ नवंबर २०२६ | दोपहर ०१:०० बजे",
+        ev2_title: "हल्दी एवं उल्लास उत्सव",
+        ev3_sub: "२९ नवंबर २०२६ | सायं ०७:०० बजे",
+        ev3_title: "भव्य संगीत संध्या",
+        ev4_sub: "३० नवंबर २०२६ | प्रातः ११:३० बजे से",
+        ev4_title: "बारात, पाणिग्रहण एवं प्रीतिभोज",
+        venue_text: "स्थान: बांधवगढ़ टाइगर रिसॉर्ट, बांधवगढ़, उमरिया (म.प्र.)",
+        view_maps: "गूगल मैप्स पर देखें",
+        wardrobe_badge: "परिधान शैली",
+        wardrobe_heading: "पहनावा<br>मार्गदर्शिका",
+        wardrobe_sub: "हमारे उत्सवों के लिए विशेष परिधान मार्गदर्शिका",
+        rsvp_badge: "हमारे उत्सव में शामिल हों",
+        rsvp_heading: "उपस्थिति दर्ज करें",
+        rsvp_sub: "कृपया अपने स्नेह और उपस्थिति से हमें अनुगृहीत करें!",
+        card_guest: "अतिथि विवरण",
+        lbl_fullname: "आपका पूरा नाम",
+        lbl_phone: "मोबाइल नंबर",
+        card_party: "अतिथियों की संख्या व भोजन प्राथमिकता",
+        sub_party: "आपकी सुखद व्यवस्था के लिए हमें सूचित करें।",
+        lbl_guests: "कुल अतिथियों की संख्या",
+        lbl_meal: "भोजन प्राथमिकता",
+        opt_meal_select: "विकल्प चुनें",
+        opt_jain: "जैन शुद्ध शाकाहारी",
+        opt_pure: "शुद्ध शाकाहारी",
+        card_events: "आप कौन-से कार्यक्रमों में शामिल होंगे?",
+        sub_events: "जिन कार्यक्रमों में आप पधारेंगे उन्हें चुनें:",
+        ev1_chk: "मुद्रिका संस्कार (29 नवं, 11:30 AM)",
+        ev2_chk: "हल्दी उत्सव (29 नवं, 1 PM)",
+        ev3_chk: "भव्य संगीत संध्या (29 नवं, 7 PM)",
+        ev4_chk: "बारात व प्रीतिभोज (30 नवं, 11:30 AM)",
+        card_note: "अपना स्नेह / आशीर्वाद संदेश लिखें",
+        sub_note: "शिवानी एवं अतिशय के लिए अपनी मंगलकामनाएं साझा करें।",
+        submit_btn: "शुभकामनाएं एवं उपस्थिति भेजें",
+        footer_quote: "दो परिवार, एक पवित्र परिणय सूत्र।<br>अपना मंगल आशीर्वाद देने के लिए आप सभी का हार्दिक धन्यवाद।",
+        footer_date: "३० नवंबर २०२६ · बांधवगढ़ टाइगर रिसॉर्ट"
+    },
+    gu: {
+        hero_blessings: "પરમકૃપાળુ પરમાત્મા તેમજ વડીલોના આશીર્વાદથી,<br>અમારા પ્રિય બાળકોના શુભ લગ્ન પ્રસંગે આપનું સહર્ષ હાર્દિક સ્વાગત છે.",
+        bride_family: "સુપુત્રી: શ્રીમતી શશી તેમજ શ્રી જિતેન્દ્ર જૈન",
+        groom_family: "સુપુત્ર: શ્રીમતી કમલેશ તેમજ શ્રી રવિન્દ્ર જૈન",
+        scroll_cue: "આગળ જોવા માટે સ્ક્રોલ કરો",
+        scratch_badge: "શુભ તારીખ",
+        scratch_heading: "અમારો ખાસ દિવસ<br>જાણો",
+        scratch_instruct: "તારીખ જાણવા માટે હાર્ટ્સ સ્ક્રેચ કરો",
+        label_day: "દિવસ",
+        label_month: "મહિનો",
+        label_year: "વર્ષ",
+        val_month: "નવેમ્બર",
+        surprise_msg: "શિવાની અને અતિશય · એક સુંદર જીવનની શરૂઆત...",
+        cd_days: "દિવસ",
+        cd_hours: "કલાક",
+        cd_mins: "મિનિટ",
+        cd_secs: "સેકન્ડ",
+        memories_badge: "અમારી સફરની ઝલક",
+        memories_heading: "સુંદર<br>યાદો",
+        memories_tap: "ટેપ કરીને પ્રેમ વરસાવો 💖",
+        couple_badge: "✨ પવિત્ર પરિણય ✨",
+        couple_images: "યુગલ તસવીરો",
+        shower_love: "❤️ પ્રેમ વરસાવો",
+        family_badge: "સ્નેહી સ્વજનો",
+        family_heading: "પરિવાર પરિચય",
+        family_subtext: "\"બે પરિવારોનું પવિત્ર મિલન, વડીલોના મંગલ આશીર્વાદ સાથે.\"",
+        bride_side_badge: "કન્યા પક્ષ · જૈન પરિવાર",
+        bride_label: "અમારી વ્હાલી દીકરી",
+        groom_side_badge: "વર પક્ષ · જૈન પરિવાર",
+        groom_label: "અમારા ચિરંજીવી વર",
+        parents_label: "માતા-પિતા",
+        bride_parents: "શ્રીમતી શશી તેમજ શ્રી જિતેન્દ્ર જૈન",
+        groom_parents: "શ્રીમતી કમલેશ તેમજ શ્રી રવિન્દ્ર જૈન",
+        blessings_from_label: "પરમ પૂજ્ય આશીર્વાદ",
+        bride_elders: "પૂજ્ય દાદા-દાદી તેમજ સમસ્ત વડીલોના આશીર્વાદથી",
+        groom_elders: "પૂજ્ય દાદા-દાદી તેમજ સમસ્ત વડીલોના આશીર્વાદથી",
+        near_dear_label: "સ્નેહી સ્વજનો",
+        bride_relatives: "ભાઈ-બહેન તેમજ સમસ્ત જૈન પરિવાર",
+        groom_relatives: "ભાઈ-બહેન તેમજ સમસ્ત જૈન પરિવાર",
+        hometown_label: "નિવાસ",
+        bride_hometown: "બાંધવગઢ / ઉમરિયા (મ.પ્ર.)",
+        groom_hometown: "જબલપુર / બાંધવગઢ (મ.પ્ર.)",
+        darshan_badge: "દર્શનાભિલાષી",
+        darshan_text: "સમસ્ત જૈન પરિવાર, સગા-સંબંધીઓ તેમજ સ્નેહીજનો",
+        swagat_badge: "સ્વાગતાકાંક્ષી",
+        swagat_text: "સમસ્ત પરિવારજનો",
+        bal_badge: "બાળ મનુહાર",
+        bal_text: "મારા ફોઈ અને કાકાના લગ્નમાં જરૂર પધારજો! 👶❤️✨",
+        events_badge: "માંગલિક પ્રસંગો",
+        events_heading: "લગ્ન મહોત્સવ",
+        ev1_sub: "૨૯ નવેમ્બર ૨૦૨૬ | સવારે ૧૧:૩૦ કલાકે",
+        ev1_title: "મુદ્રિકા સંસ્કાર (સગાઈ)",
+        ev2_sub: "૨૯ નવેમ્બર ૨૦૨૬ | બપોરે ૦૧:૦૦ કલાકે",
+        ev2_title: "પીઠી તેમજ હળદર ઉત્સવ",
+        ev3_sub: "૨૯ નવેમ્બર ૨૦૨૬ | સાંજે ૦૭:૦૦ કલાકે",
+        ev3_title: "ભવ્ય સંગીત સંધ્યા",
+        ev4_sub: "૩૦ નવેમ્બર ૨૦૨૬ | સવારે ૧૧:૩૦ કલાકેથી",
+        ev4_title: "જાન આગમન, હસ્તમેળાપ તેમજ પ્રીતિભોજન",
+        venue_text: "સ્થળ: બાંધવગઢ ટાઈગર રિસોર્ટ, બાંધવગઢ, ઉમરિયા (મ.પ્ર.)",
+        view_maps: "ગૂગલ મેપ્સ પર જુઓ",
+        wardrobe_badge: "પરિધાન શૈલી",
+        wardrobe_heading: "પોશાક<br>માર્ગદર્શિકા",
+        wardrobe_sub: "અમારા માંગલિક પ્રસંગો માટે વિશેષ પોશાક માર્ગદર્શિકા",
+        rsvp_badge: "અમારા ઉત્સવમાં પધારો",
+        rsvp_heading: "ઉપસ્થિતિ નોંધાવો",
+        rsvp_sub: "કૃપા કરીને આપની સ્નેહભરી ઉપસ્થિતિથી અમને અનુગૃહીત કરો!",
+        card_guest: "અતિથિ વિગત",
+        lbl_fullname: "આપનું પૂરું નામ",
+        lbl_phone: "મોબાઈલ નંબર",
+        card_party: "અતિથિ સંખ્યા તેમજ ભોજન પસંદગી",
+        sub_party: "આપની ઉત્તમ વ્યવસ્થા માટે અમને જણાવો.",
+        lbl_guests: "કુલ અતિથિ સંખ્યા",
+        lbl_meal: "ભોજન પસંદગી",
+        opt_meal_select: "પસંદગી કરો",
+        opt_jain: "જૈન શુદ્ધ શાકાહારી",
+        opt_pure: "શુદ્ધ શાકાહારી",
+        card_events: "આપ કયા પ્રસંગોમાં હાજરી આપશો?",
+        sub_events: "જે પ્રસંગોમાં પધારવાના હોવ તે પસંદ કરો:",
+        ev1_chk: "મુદ્રિકા સંસ્કાર (29 નવે, 11:30 AM)",
+        ev2_chk: "હળદર ઉત્સવ (29 નવે, 1 PM)",
+        ev3_chk: "ભવ્ય સંગીત સંધ્યા (29 નવે, 7 PM)",
+        ev4_chk: "જાન અને પ્રીતિભોજન (30 નવે, 11:30 AM)",
+        card_note: "આપનો સ્નેહ / આશીર્વાદ સંદેશ લખો",
+        sub_note: "શિવાની તેમજ અતિશય માટે આપની મંગલકામનાઓ મોકલો.",
+        submit_btn: "શુભેચ્છાઓ તેમજ ઉપસ્થિતિ મોકલો",
+        footer_quote: "બે પરિવારો, એક પવિત્ર સ્નેહસૂત્ર.<br>આપના મંગલ આશીર્વાદ માટે આપ સૌનો હૃદયપૂર્વક આભાર.",
+        footer_date: "૩૦ નવેમ્બર ૨૦૨૬ · બાંધવગઢ ટાઈગર રિસોર્ટ"
+    },
+    raj: {
+        hero_blessings: "परमपिता परमात्मा अरु बडे-बुजुर्गां रै हुकम व आसीस सूं,<br>म्हे आप सगळां नै आपरा टाबरां रै ब्याव-उत्सव माथे घणी मनुहार सूं नूतौ देवां हां।",
+        bride_family: "लाडली धीवड़ी: श्रीमती शशि अरु श्री जितेन्द्र जैन",
+        groom_family: "सपूत बींद: श्रीमती कमलेश अरु श्री रवीन्द्र जैन",
+        scroll_cue: "आगै देखण खातर स्क्रॉल करो सा",
+        scratch_badge: "शुभ सावो",
+        scratch_heading: "म्हारो खास दिन<br>जाणो सा",
+        scratch_instruct: "तारीख जाणण खातर दिलां नै स्क्रैच करो",
+        label_day: "दिन",
+        label_month: "महीनो",
+        label_year: "साल",
+        val_month: "नवम्बर",
+        surprise_msg: "शिवानी अरु अतिशय · एक सुहाणी सरुआत...",
+        cd_days: "दिन",
+        cd_hours: "घंटा",
+        cd_mins: "मिनट",
+        cd_secs: "सेकंड",
+        memories_badge: "एक झलक म्हारै सफर री",
+        memories_heading: "प्यारी-प्यारी<br>यादां",
+        memories_tap: "टैप कर'र हेत बरसाओ 💖",
+        couple_badge: "✨ पावन फेरा ✨",
+        couple_images: "जोड़ी री मूरत",
+        shower_love: "❤️ हेत बरसाओ",
+        family_badge: "म्हारा सगा-सनेही",
+        family_heading: "कुटुम्ब परिचय",
+        family_subtext: "\"दो घराणां रो पावन मेळ, बुजुर्गां री आसीस रो रूप।\"",
+        bride_side_badge: "कन्या पक्ष · जैन परिवार",
+        bride_label: "म्हारी लाडकी धीवड़ी",
+        groom_side_badge: "वर पक्ष · जैन परिवार",
+        groom_label: "म्हारो चिरंजीव बींद",
+        parents_label: "माई-बाप",
+        bride_parents: "श्रीमती शशि अरु श्री जितेन्द्र जैन",
+        groom_parents: "श्रीमती कमलेश अरु श्री रवीन्द्र जैन",
+        blessings_from_label: "परम आसीस",
+        bride_elders: "पूज्य दादाजी-दादीजी अरु सगळा बुजुर्गां री आसीस सूं",
+        groom_elders: "पूज्य दादाजी-दादीजी अरु सगळा बुजुर्गां री आसीस सूं",
+        near_dear_label: "स्नेही परिजन",
+        bride_relatives: "भाई-बहण अरु समूचो जैन परिवार",
+        groom_relatives: "भाई-बहण अरु समूचो जैन परिवार",
+        hometown_label: "डेरो / निवास",
+        bride_hometown: "बांधवगढ़ / उमरिया (म.प्र.)",
+        groom_hometown: "जबलपुर / बांधवगढ़ (म.प्र.)",
+        darshan_badge: "दर्शनाभिलाषी",
+        darshan_text: "समूचो जैन परिवार, नाते-गोतेदार अरु सगळा स्नेहीजन",
+        swagat_badge: "स्वागताकांक्षी",
+        swagat_text: "सगळा कुटुम्बीजन",
+        bal_badge: "बाल मनुहार",
+        bal_text: "म्हारी भूआ अरु काकोसा रै ब्याव में जरूर-जरूर पधारजो सा! 👶❤️✨",
+        events_badge: "मांगलिक काज",
+        events_heading: "ब्याव उत्सव",
+        ev1_sub: "२९ नवम्बर २०२६ | दिनुगै ११:३० बज्यां",
+        ev1_title: "मुद्रिका दस्तूर (सगाई)",
+        ev2_sub: "२९ नवम्बर २०२६ | दुपहरी ०१:०० बज्यां",
+        ev2_title: "पीठी अरु हल्दी रो रंग",
+        ev3_sub: "२९ नवम्बर २०२६ | सांझ ०७:०० बज्यां",
+        ev3_title: "रूड़ो संगीत संध्या",
+        ev4_sub: "३० नवम्बर २०२६ | दिनुगै ११:३० बज्यां सूं",
+        ev4_title: "बारात, फेरा (पाणिग्रहण) अरु मायरो/प्रीतिभोज",
+        venue_text: "ठिकाणो: बांधवगढ़ टाइगर रिसॉर्ट, बांधवगढ़, उमरिया (म.प्र.)",
+        view_maps: "गूगल मैप्स माथे देखो सा",
+        wardrobe_badge: "पहनाव रो सलीको",
+        wardrobe_heading: "पोशाक<br>मार्गदर्शिका",
+        wardrobe_sub: "म्हारा उत्सवां खातर खास परिधान री झांकी",
+        rsvp_badge: "म्हारै उत्सव में पधारो",
+        rsvp_heading: "पधारबा री अरजी",
+        rsvp_sub: "म्हारै कोड-काज में पधार'र म्हांनै मान बख्शो सा!",
+        card_guest: "पाहुणां रो ब्योरो",
+        lbl_fullname: "आपरो पूरो नाम",
+        lbl_phone: "मोबाइल नंबर",
+        card_party: "पाहुणां री गिनती अरु जीमण रो मनवार",
+        sub_party: "आपरी चोखी सेवा खातर म्हांनै जरूर बताइज्यो सा।",
+        lbl_guests: "कुल पाहुणां री गिनती",
+        lbl_meal: "जीमण री पसंद",
+        opt_meal_select: "पसंद चुणो",
+        opt_jain: "जैन शुद्ध शाकाहारी",
+        opt_pure: "शुद्ध शाकाहारी",
+        card_events: "आप कैड़ा-कैड़ा काज में पधारस्यो?",
+        sub_events: "जिण काज में पधारो, उण माथे टिक लगाइज्यो सा:",
+        ev1_chk: "मुद्रिका दस्तूर (29 नवं, 11:30 AM)",
+        ev2_chk: "हल्दी रो रंग (29 नवं, 1 PM)",
+        ev3_chk: "रूड़ो संगीत संध्या (29 नवं, 7 PM)",
+        ev4_chk: "बारात व प्रीतिभोज (30 नवं, 11:30 AM)",
+        card_note: "आपरो हेत अरु आसीस लिखो सा",
+        sub_note: "शिवानी अरु अतिशय खातर आपरा मन रो भाव लिखो सा।",
+        submit_btn: "आसीस अरु मनवार भेजो सा",
+        footer_quote: "दो कुटुम्ब, एक पावन गठबंधन।<br>आपरी घणी आसीस खातर आप सगळां रो घणो-घणो आभार सा।",
+        footer_date: "३० नवम्बर २०२६ · बांधवगढ़ टाइगर रिसॉर्ट"
+    }
+};
+
+const LANG_SHORT_CODES = {
+    en: 'ENG',
+    hi: 'HIN',
+    gu: 'GUJ',
+    raj: 'RAJ'
+};
+
+let currentLang = 'en';
+
+function setLanguage(lang) {
+    if (!TRANSLATIONS[lang]) return;
+    currentLang = lang;
+    try { localStorage.setItem('wedding_lang', lang); } catch(_) {}
+
+    // Update compact button label
+    const labelEl = document.getElementById('current-lang-text');
+    if (labelEl) {
+        labelEl.textContent = LANG_SHORT_CODES[lang] || lang.toUpperCase();
+    }
+
+    // Update active class on dropdown options
+    document.querySelectorAll('.lang-opt-item').forEach(item => {
+        const itemLang = item.getAttribute('data-lang');
+        item.classList.toggle('active', itemLang === lang);
+    });
+
+    document.documentElement.lang = lang;
+
+    // Translate all elements with data-i18n
+    const dict = TRANSLATIONS[lang];
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key] !== undefined) {
+            el.innerHTML = dict[key];
+        }
+    });
+
+    // Form inputs and placeholders
+    const nameInput = document.getElementById('f-name');
+    const phoneInput = document.getElementById('f-phone');
+    const guestInput = document.getElementById('f-guests');
+    const noteArea = document.querySelector('textarea[name="message"]');
+    if (lang === 'hi') {
+        if (nameInput) nameInput.placeholder = 'पूरा नाम दर्ज करें';
+        if (phoneInput) phoneInput.placeholder = '१० अंकों का मोबाइल नंबर';
+        if (guestInput) guestInput.placeholder = 'स्वयं सहित संख्या';
+        if (noteArea) noteArea.placeholder = 'अपनी मंगलकामनाएं यहाँ लिखें...';
+    } else if (lang === 'gu') {
+        if (nameInput) nameInput.placeholder = 'પૂરું નામ લખો';
+        if (phoneInput) phoneInput.placeholder = '૧૦ અંકોનો મોબાઈલ નંબર';
+        if (guestInput) guestInput.placeholder = 'પોતાની સાથે સંખ્યા';
+        if (noteArea) noteArea.placeholder = 'આપની મંગલકામનાઓ અહીં લખો...';
+    } else if (lang === 'raj') {
+        if (nameInput) nameInput.placeholder = 'आपरो पूरो नाम लिखो सा';
+        if (phoneInput) phoneInput.placeholder = '१० अंका रो मोबाइल नंबर';
+        if (guestInput) guestInput.placeholder = 'आपरे सागे पाहुणां री गिनती';
+        if (noteArea) noteArea.placeholder = 'आपरी मनवार व आसीस अठै लिखो सा...';
+    } else {
+        if (nameInput) nameInput.placeholder = 'Enter full name';
+        if (phoneInput) phoneInput.placeholder = 'Enter 10-digit mobile number';
+        if (guestInput) guestInput.placeholder = 'Including yourself';
+        if (noteArea) noteArea.placeholder = 'Write your warm wishes here...';
+    }
+}
+
+function initLanguageSwitcher() {
+    const wrap = document.getElementById('lang-dropdown-wrap');
+    const toggleBtn = document.getElementById('lang-toggle-btn');
+    if (!wrap || !toggleBtn) return;
+
+    // Toggle dropdown on button click
+    toggleBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const isOpen = wrap.classList.toggle('open');
+        toggleBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    // Select language option
+    document.querySelectorAll('.lang-opt-item').forEach(function(item) {
+        item.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const lang = item.getAttribute('data-lang');
+            setLanguage(lang);
+            wrap.classList.remove('open');
+            toggleBtn.setAttribute('aria-expanded', 'false');
+        });
+    });
+
+    // Close when clicking anywhere outside
+    document.addEventListener('click', function(e) {
+        if (!wrap.contains(e.target)) {
+            wrap.classList.remove('open');
+            toggleBtn.setAttribute('aria-expanded', 'false');
+        }
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && wrap.classList.contains('open')) {
+            wrap.classList.remove('open');
+            toggleBtn.setAttribute('aria-expanded', 'false');
+        }
+    });
+
+    // Read stored language or default to en
+    let saved = 'en';
+    try { saved = localStorage.getItem('wedding_lang') || 'en'; } catch(_) {}
+    if (TRANSLATIONS[saved]) {
+        setLanguage(saved);
+    } else {
+        setLanguage('en');
+    }
+}
+
+initLanguageSwitcher();
+
 /* ================================================================
    MEMORIES & LOVE COUNTER — Interactive Card & Shower Love
 ================================================================ */
