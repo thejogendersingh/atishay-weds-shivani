@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 142" width="120" height="142">
+  <defs>
+    <linearGradient id="jainGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFE8B0" />
+      <stop offset="35%" stop-color="#E5A844" />
+      <stop offset="70%" stop-color="#FAD47A" />
+      <stop offset="100%" stop-color="#B26F22" />
+    </linearGradient>
+    <filter id="swastikGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="1.5" stdDeviation="1.5" flood-color="#8B4513" flood-opacity="0.35" />
+    </filter>
+  </defs>
+
+  <g fill="url(#jainGoldGrad)" stroke="url(#jainGoldGrad)" filter="url(#swastikGlow)">
+    <!-- 1. Siddha Dot (Top single dot - Moksha) -->
+    <circle cx="60" cy="13" r="3.6" stroke-width="0" />
+
+    <!-- 2. Siddha Shila (Crescent arc at the top) -->
+    <path d="M 38,24 C 49,34 71,34 82,24 C 71,30 49,30 38,24 Z" stroke-width="0.8" stroke-linejoin="round" />
+
+    <!-- 3. Ratnatraya (Three Jewels / Three Dots) -->
+    <circle cx="44" cy="39" r="3.4" stroke-width="0" />
+    <circle cx="60" cy="39" r="3.4" stroke-width="0" />
+    <circle cx="76" cy="39" r="3.4" stroke-width="0" />
+
+    <!-- 4. Sacred Swastika Arms (Clockwise, Elegant Rounded Stroke) -->
+    <g fill="none" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Top-right arm: center up to 58, then right to 86 -->
+      <path d="M 60,88 L 60,58 L 86,58" />
+      
+      <!-- Right-down arm: center right to 88, then down to 114 -->
+      <path d="M 60,88 L 88,88 L 88,114" />
+
+      <!-- Bottom-left arm: center down to 118, then left to 34 -->
+      <path d="M 60,88 L 60,118 L 34,118" />
+
+      <!-- Left-up arm: center left to 32, then up to 62 -->
+      <path d="M 60,88 L 32,88 L 32,62" />
+    </g>
+
+    <!-- 5. Four Auspicious Dots (Representing 4 Gatis) -->
+    <circle cx="46" cy="74" r="2.8" stroke-width="0" />
+    <circle cx="74" cy="74" r="2.8" stroke-width="0" />
+    <circle cx="46" cy="102" r="2.8" stroke-width="0" />
+    <circle cx="74" cy="102" r="2.8" stroke-width="0" />
+  </g>
+</svg>
