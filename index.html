@@ -417,7 +417,17 @@
         .card-corner.br { bottom:16px; right:16px; border-width: 0 1px 1px 0; border-radius: 0 0 4px 0; }
 
         /* Sacred Jain Header in Card */
-        .ganesh-icon { height: 52px; width: auto; object-fit: contain; margin: 0 auto 0.5rem; }
+        .ganesh-icon {
+            height: 60px;
+            width: auto;
+            object-fit: contain;
+            margin: 0 auto 0.6rem;
+            display: block;
+            filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.28));
+        }
+        body.light-theme .ganesh-icon {
+            filter: drop-shadow(0 2px 6px rgba(184, 89, 64, 0.2));
+        }
         .jain-mangal-box {
             width: 100%;
             margin-bottom: 1.1rem;
@@ -1016,6 +1026,7 @@
             font-size: 1.18rem;
             color: var(--text-dark);
             line-height: 1.45;
+            text-wrap: balance;
         }
         .family-name-item.highlight-parents {
             font-size: 1.25rem;
@@ -1492,7 +1503,7 @@
             <div class="card-corner bl"></div>
             <div class="card-corner br"></div>
 
-            <img class="ganesh-icon" src="assets/jain-swastik.svg" alt="Shri Jain Swastik" loading="eager">
+            <img class="ganesh-icon" src="assets/jain-symbol.png" alt="Shri Jain Prateek" loading="eager">
 
             <!-- Sacred Jain Invocation & Mangal Path -->
             <div class="jain-mangal-box">
@@ -1934,10 +1945,10 @@
                 <div class="family-sub-group">
                     <p class="family-group-title" data-i18n="bsf_label">Brother Sister and Family</p>
                     <div class="family-names-list">
-                        <p class="family-name-item">Mr. Mahendra Jain &amp; Mrs. Madhu Jain</p>
-                        <p class="family-name-item">Mr. Rajendra Jain &amp; Mrs. Seema Jain</p>
-                        <p class="family-name-item">Mr. Shashank Jain &amp; Mrs. Soumya Jain</p>
-                        <p class="family-name-item">Mr. Shubham Jain</p>
+                        <p class="family-name-item">Mahendra Jain &amp; Madhu Jain</p>
+                        <p class="family-name-item">Rajendra Jain &amp; Seema Jain</p>
+                        <p class="family-name-item">Shashank Jain &amp; Soumya Jain</p>
+                        <p class="family-name-item">Shubham Jain</p>
                         <p class="family-kids-line">Mansi, Ayushi, Anudish, Aarushi, Anugrah</p>
                     </div>
                 </div>
