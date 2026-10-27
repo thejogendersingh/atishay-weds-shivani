@@ -905,7 +905,7 @@
             background: rgba(36, 25, 39, 0.92);
             border: 1px solid var(--border);
             border-radius: 2rem;
-            padding: clamp(2.5rem, 6vw, 3.5rem) clamp(1.5rem, 5vw, 3rem);
+            padding: clamp(2rem, 5vw, 3.5rem) clamp(0.85rem, 4vw, 2.8rem);
             box-shadow: var(--shadow-warm), 0 0 35px rgba(224,168,70,0.12);
             position: relative;
             text-align: center;
@@ -998,7 +998,7 @@
         .family-sub-group {
             width: 100%;
             margin-top: 0.85rem;
-            padding: 0.9rem 1.1rem;
+            padding: 0.85rem clamp(0.5rem, 3vw, 1rem);
             border-radius: 1.1rem;
             background: rgba(224, 168, 70, 0.05);
             border: 1px solid rgba(224, 168, 70, 0.18);
@@ -1019,17 +1019,20 @@
         .family-names-list {
             display: flex;
             flex-direction: column;
-            gap: 0.3rem;
+            gap: 0.35rem;
         }
         .family-name-item {
             font-family: 'Noto Serif Devanagari', 'Cormorant Garamond', serif;
             font-size: 1.18rem;
             color: var(--text-dark);
             line-height: 1.45;
-            text-wrap: balance;
+        }
+        .family-names-list .family-name-item {
+            font-size: clamp(0.84rem, 3.75vw, 1.18rem);
+            white-space: nowrap;
         }
         .family-name-item.highlight-parents {
-            font-size: 1.25rem;
+            font-size: clamp(0.95rem, 4vw, 1.25rem);
             font-weight: 600;
         }
         .family-kids-line {
