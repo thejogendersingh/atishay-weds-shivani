@@ -351,9 +351,12 @@
         .ornament svg { color: var(--gold); flex-shrink: 0; }
 
         .section-label {
-            font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 0.75rem;
-            letter-spacing: 0.35em; text-transform: uppercase;
-            color: var(--gold); display: block; margin-bottom: 0.75rem;
+            font-family: 'Cormorant Garamond', serif; font-weight: 800; font-size: 0.95rem;
+            letter-spacing: 0.32em; text-transform: uppercase;
+            color: var(--terracotta); display: block; margin-bottom: 0.75rem;
+        }
+        body:not(.light-theme) .section-label {
+            color: var(--gold-light);
         }
         .section-heading { font-family: 'Great Vibes', cursive; font-size: clamp(3.2rem, 9.5vw, 5.2rem); line-height: 1.1; }
 
@@ -455,27 +458,48 @@
         body.light-theme .sacred-om { color: var(--terra-dark); }
         .sacred-shloka {
             font-family: 'Noto Serif Devanagari', 'Cormorant Garamond', serif;
-            font-size: 0.95rem;
-            line-height: 1.5;
+            font-size: 1.12rem;
+            line-height: 1.6;
             color: var(--text-dark);
-            font-weight: 500;
+            font-weight: 700;
         }
         body.light-theme .sacred-shloka { color: var(--text-dark); }
 
-        .blessings-text { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1rem; color: var(--text-mid); line-height: 1.45; margin-bottom: 1.15rem; padding: 0 0.5rem; }
+        .blessings-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.32rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            line-height: 1.55;
+            margin-bottom: 1.25rem;
+            padding: 0 0.5rem;
+        }
         .couple-block { width: 100%; margin-bottom: 0.25rem; }
         .couple-name { font-family: 'Alex Brush', cursive; font-size: clamp(3.6rem, 10vw, 4.8rem); line-height: 1.05; display: block; letter-spacing: 0.01em; padding: 0.1rem 0; font-weight: normal; }
-        .family-line { font-family: 'Cormorant Garamond', serif; font-size: 0.92rem; font-weight: 500; color: var(--text-dark); line-height: 1.4; margin-top: 0.35rem; }
-        .family-line em { color: var(--gold-light); font-style: normal; }
-        body.light-theme .family-line em { color: var(--terra-dark); }
+        .family-line {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            line-height: 1.45;
+            margin-top: 0.4rem;
+            letter-spacing: 0.02em;
+        }
+        .family-line em {
+            color: var(--terra-dark);
+            font-style: normal;
+            font-weight: 800;
+        }
+        body:not(.light-theme) .family-line em { color: var(--gold-light); }
 
         .ampersand-wrap { display: flex; align-items: center; justify-content: center; gap: 0.9rem; margin: 0.9rem 0; width: 100%; }
         .ampersand-line { height: 1px; width: 38px; background: var(--border); }
-        .ampersand { font-family: 'Great Vibes', cursive; font-size: 2rem; color: var(--gold); line-height: 1; }
+        .ampersand { font-family: 'Great Vibes', cursive; font-size: 2.2rem; color: var(--gold); line-height: 1; font-weight: bold; }
 
-        .scroll-cue { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); z-index: 5; display: flex; flex-direction: column; align-items: center; gap: 0.4rem; opacity: 0.7; animation: scrollBounce 2s ease infinite; }
-        .scroll-cue p { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--text-mid); }
-        .scroll-cue svg { color: var(--text-mid); width: 18px; }
+        .scroll-cue { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); z-index: 5; display: flex; flex-direction: column; align-items: center; gap: 0.4rem; opacity: 0.85; animation: scrollBounce 2s ease infinite; }
+        .scroll-cue p { font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--text-dark); }
+        .scroll-cue svg { color: var(--text-dark); width: 18px; }
         @keyframes scrollBounce { 0%,100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(8px); } }
 
         /* ============================================================
@@ -1033,13 +1057,14 @@
         }
         .family-name-item.highlight-parents {
             font-size: clamp(0.95rem, 4vw, 1.25rem);
-            font-weight: 600;
+            font-weight: 700;
         }
         .family-kids-line {
             font-family: 'Noto Serif Devanagari', 'Cormorant Garamond', serif;
-            font-size: 1.08rem;
-            color: var(--terra-light);
+            font-size: 1.15rem;
+            color: var(--terra-dark);
             font-style: italic;
+            font-weight: 600;
             margin-top: 0.35rem;
             line-height: 1.5;
         }
@@ -1070,13 +1095,21 @@
         .event-block { max-width: 440px; margin: 0 auto 4rem; }
         .event-tag-title {
             font-family: 'Great Vibes', cursive;
-            font-size: 2.8rem;
+            font-size: clamp(3rem, 8.5vw, 3.8rem);
             color: var(--terracotta);
             margin-bottom: 0.35rem;
             line-height: 1.1;
         }
-        .event-subtitle { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 1.05rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 1rem; }
-        body.light-theme .event-subtitle { color: var(--terra-dark); }
+        .event-subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+            font-size: 1.28rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--terra-dark);
+            margin-bottom: 0.75rem;
+        }
+        body:not(.light-theme) .event-subtitle { color: var(--gold-light); }
 
         .event-media-wrap {
             border-radius: 1.5rem; overflow: hidden; border: 1px solid var(--border);
@@ -1090,6 +1123,42 @@
         .event-media-wrap img {
             width: 100%; height: auto; display: block;
             position: relative; z-index: 1;
+        }
+
+        .event-theme-card {
+            max-width: 440px; margin: 1.25rem auto 0;
+            background: rgba(255, 253, 248, 0.95);
+            border-radius: 1.25rem;
+            border: 1.5px solid rgba(201, 150, 62, 0.4);
+            overflow: hidden;
+            box-shadow: 0 8px 26px rgba(92, 34, 51, 0.08);
+            padding: 1.25rem 1.5rem;
+            text-align: center;
+            display: flex; flex-direction: column; align-items: center; gap: 0.45rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        body:not(.light-theme) .event-theme-card {
+            background: rgba(36, 25, 39, 0.95);
+            border-color: rgba(224, 168, 70, 0.4);
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45);
+        }
+        .theme-pill-tag {
+            display: inline-flex; align-items: center; gap: 0.45rem;
+            padding: 0.3rem 0.95rem; border-radius: 9999px;
+            background: rgba(184, 89, 64, 0.12);
+            color: var(--terra-dark);
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 0.88rem; font-weight: 800; letter-spacing: 0.22em;
+            text-transform: uppercase;
+        }
+        body:not(.light-theme) .theme-pill-tag {
+            background: rgba(224, 168, 70, 0.18);
+            color: var(--gold-light);
+        }
+        .event-theme-text {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 1.45rem; font-weight: 700;
+            color: var(--text-dark); line-height: 1.35; letter-spacing: 0.02em;
         }
 
         .event-venue-card {
@@ -1106,8 +1175,8 @@
         .event-dir-btn {
             display: inline-flex; align-items: center; gap: 0.5rem;
             background: var(--terracotta); color: white; text-decoration: none;
-            padding: 0.8rem 1.8rem; border-radius: 9999px; font-family: 'Cormorant Garamond', serif; font-weight: 600;
-            font-size: 0.8rem; letter-spacing: 0.18em; text-transform: uppercase;
+            padding: 0.8rem 1.8rem; border-radius: 9999px; font-family: 'Cormorant Garamond', serif; font-weight: 700;
+            font-size: 0.85rem; letter-spacing: 0.18em; text-transform: uppercase;
             white-space: nowrap; transition: background 0.2s ease, transform 0.2s ease;
         }
         .event-dir-btn:hover { background: var(--terra-dark); transform: translateY(-2px); }
@@ -1115,6 +1184,180 @@
         .event-sep { display: flex; align-items: center; justify-content: center; gap: 1rem; margin: 2rem auto; max-width: 200px; opacity: 0.5; }
         .event-sep-line { height: 1px; flex: 1; background: var(--gold); }
         .event-sep-dot  { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+
+        /* ============================================================
+           NIWAS & RESORT STAY SECTION
+        ============================================================ */
+        #venues-section {
+            padding: 5rem 1.5rem 3.5rem;
+            background: var(--cream);
+            text-align: center;
+        }
+        .niwas-cards-grid {
+            max-width: 620px;
+            margin: 2.2rem auto 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        @media (min-width: 680px) {
+            .niwas-cards-grid {
+                max-width: 760px;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 1.5rem;
+            }
+        }
+        .niwas-card {
+            background: rgba(255, 253, 248, 0.95);
+            border: 1.5px solid rgba(201, 150, 62, 0.4);
+            border-radius: 1.5rem;
+            padding: 2rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.9rem;
+            box-shadow: 0 10px 30px rgba(92, 34, 51, 0.08);
+            position: relative;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        body:not(.light-theme) .niwas-card {
+            background: rgba(36, 25, 39, 0.95);
+            border-color: rgba(224, 168, 70, 0.4);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.45);
+        }
+        .niwas-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 40px rgba(92, 34, 51, 0.14);
+        }
+        .niwas-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            padding: 0.35rem 1.1rem;
+            border-radius: 9999px;
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 0.95rem;
+            font-weight: 800;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+        }
+        .niwas-badge.groom {
+            background: rgba(184, 89, 64, 0.14);
+            color: var(--terra-dark);
+            border: 1px solid rgba(184, 89, 64, 0.28);
+        }
+        body:not(.light-theme) .niwas-badge.groom {
+            background: rgba(224, 168, 70, 0.18);
+            color: var(--gold-light);
+            border-color: rgba(224, 168, 70, 0.35);
+        }
+        .niwas-badge.bride {
+            background: rgba(201, 150, 62, 0.16);
+            color: var(--terra-dark);
+            border: 1px solid rgba(201, 150, 62, 0.32);
+        }
+        body:not(.light-theme) .niwas-badge.bride {
+            background: rgba(217, 138, 59, 0.2);
+            color: var(--gold-light);
+            border-color: rgba(217, 138, 59, 0.35);
+        }
+        .niwas-resort-name {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            line-height: 1.25;
+            margin-top: 0.2rem;
+        }
+        .niwas-resort-address {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 1.22rem;
+            font-weight: 600;
+            font-style: italic;
+            color: var(--text-dark);
+            opacity: 0.9;
+        }
+        .niwas-map-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            width: 100%;
+            padding: 0.85rem 1.25rem;
+            border-radius: 9999px;
+            background: var(--terracotta);
+            color: #ffffff !important;
+            text-decoration: none;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.92rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            box-shadow: 0 4px 16px rgba(184, 89, 64, 0.3);
+            transition: all 0.25s ease;
+            margin-top: 0.5rem;
+        }
+        .niwas-map-btn:hover {
+            background: var(--terra-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(184, 89, 64, 0.45);
+        }
+        .ceremonies-venue-note {
+            max-width: 620px;
+            margin: 1.8rem auto 0;
+            background: rgba(224, 168, 70, 0.12);
+            border: 1.5px dashed var(--gold);
+            border-radius: 1.25rem;
+            padding: 1.3rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1.1rem;
+            text-align: left;
+            box-shadow: 0 6px 20px rgba(92, 34, 51, 0.05);
+        }
+        @media (min-width: 680px) {
+            .ceremonies-venue-note {
+                max-width: 760px;
+            }
+        }
+        body:not(.light-theme) .ceremonies-venue-note {
+            background: rgba(224, 168, 70, 0.08);
+            border-color: rgba(224, 168, 70, 0.45);
+        }
+        .note-icon-wrap {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--terracotta);
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 4px 14px rgba(184, 89, 64, 0.3);
+        }
+        .note-tag {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.85rem;
+            font-weight: 800;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--terra-dark);
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+        body:not(.light-theme) .note-tag {
+            color: var(--gold-light);
+        }
+        .note-main-text {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 1.32rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            line-height: 1.4;
+        }
 
         /* ============================================================
            WARDROBE PLANNER
@@ -1314,11 +1557,12 @@
             background: var(--white);
             box-shadow: 0 4px 24px rgba(92,34,51,0.05);
         }
-        .form-card-title { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.3rem; font-weight: 600; color: var(--terracotta); margin-bottom: 0.35rem; }
-        .form-card-subtitle { font-size: 0.9rem; color: var(--text-light); margin-bottom: 1.25rem; }
-        .field-label { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-light); display: block; margin-bottom: 0.4rem; }
+        .form-card-title { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.45rem; font-weight: 700; color: var(--terracotta); margin-bottom: 0.35rem; }
+        .form-card-subtitle { font-size: 1.05rem; font-weight: 600; color: var(--text-dark); margin-bottom: 1.25rem; }
+        .field-label { font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--terra-dark); display: block; margin-bottom: 0.4rem; }
+        body:not(.light-theme) .field-label { color: var(--gold-light); }
         
-        .field-input { width: 100%; background: rgba(23,16,28,0.72); border: 0; border-bottom: 1.5px solid var(--border); padding: 0.6rem 0.25rem; font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; color: var(--text-dark); outline: none; transition: border-color 0.2s ease; }
+        .field-input { width: 100%; background: rgba(23,16,28,0.72); border: 0; border-bottom: 1.5px solid var(--border); padding: 0.6rem 0.25rem; font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 600; color: var(--text-dark); outline: none; transition: border-color 0.2s ease; }
         body.light-theme .field-input { background: var(--cream); }
         .field-input:focus { border-color: var(--terracotta); }
         .field-select {
@@ -1347,12 +1591,12 @@
         .circle-opt:has(input:checked) .circle-face { background: var(--terracotta); border-color: var(--terracotta); color: white; box-shadow: 0 4px 16px rgba(184,89,64,0.35); }
         .circle-opt-label { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-light); }
 
-        .text-area { width: 100%; background: rgba(23,16,28,0.72); border: 1px solid var(--border); border-radius: 0.75rem; padding: 0.85rem 1rem; font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--text-dark); outline: none; resize: none; transition: border-color 0.2s ease; line-height: 1.5; }
+        .text-area { width: 100%; background: rgba(23,16,28,0.72); border: 1px solid var(--border); border-radius: 0.75rem; padding: 0.85rem 1rem; font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--text-dark); outline: none; resize: none; transition: border-color 0.2s ease; line-height: 1.5; }
         body.light-theme .text-area { background: var(--cream); }
         .text-area:focus { border-color: var(--terracotta); }
 
-        .submit-btn { width: 100%; background: var(--terracotta); color: white; border: none; border-radius: 9999px; padding: 1.1rem; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 0.82rem; letter-spacing: 0.25em; text-transform: uppercase; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 6px 24px rgba(184,89,64,0.35); position: relative; overflow: hidden; }
-        .submit-btn::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to right, transparent, rgba(255,255,255,0.15), transparent); transform: translateX(-100%); transition: transform 0.5s ease; }
+        .submit-btn { width: 100%; background: var(--terracotta); color: white; border: none; border-radius: 9999px; padding: 1.15rem; font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 1.05rem; letter-spacing: 0.18em; text-transform: uppercase; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 6px 24px rgba(184,89,64,0.35); position: relative; overflow: hidden; display: inline-flex; align-items: center; justify-content: center; }
+        .submit-btn::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to right, transparent, rgba(255,255,255,0.2), transparent); transform: translateX(-100%); transition: transform 0.5s ease; }
         .submit-btn:hover::after { transform: translateX(100%); }
         .submit-btn:hover { background: var(--terra-dark); transform: translateY(-2px); box-shadow: 0 10px 32px rgba(184,89,64,0.45); }
         .submit-btn:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
@@ -1406,10 +1650,12 @@
         .modal-close-btn { background: var(--terracotta); color: white; border: none; border-radius: 9999px; padding: 0.85rem 2.5rem; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; cursor: pointer; transition: all 0.2s ease; width: 100%; }
         .modal-close-btn:hover { background: var(--terra-dark); }
         .modal-wa-btn {
-            background: #25D366; color: white; border: none; border-radius: 9999px; padding: 0.85rem 2.5rem;
-            font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 0.85rem; letter-spacing: 0.1em;
+            background: var(--terracotta); color: white; border: none; border-radius: 9999px; padding: 0.85rem 2.5rem;
+            font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 0.95rem; letter-spacing: 0.05em;
             text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+            transition: all 0.25s ease;
         }
+        .modal-wa-btn:hover { background: var(--terra-dark); }
 
         .footer-brand-link {
             display: inline-flex;
@@ -1553,7 +1799,7 @@
         <div class="text-center reveal">
             <span class="section-label" data-i18n="scratch_badge">Save The Date</span>
             <h2 class="section-heading" style="color:var(--terracotta)" data-i18n="scratch_heading">Reveal Our<br>Big Day</h2>
-            <p class="reveal reveal-delay-2 mt-4" style="font-style:italic;color:var(--text-light);font-size:1.15rem;margin-bottom:1rem;" data-i18n="scratch_instruct">Scratch the hearts to reveal</p>
+            <p class="reveal reveal-delay-2 mt-4" style="font-style:italic;color:var(--text-dark);font-size:1.35rem;font-weight:700;margin-bottom:1.25rem;" data-i18n="scratch_instruct">Scratch the hearts to reveal</p>
         </div>
 
         <div class="hearts-row reveal reveal-delay-2" id="heartsRow">
@@ -1758,21 +2004,21 @@
             </div>
         </div>
 
-        <!-- Function 1: Ring Ceremony -->
+        <!-- Function 1: Faldan -->
         <div class="event-block reveal">
             <div class="text-center mb-4">
                 <p class="event-subtitle" data-i18n="ev1_sub">November 29, 2026 | 11:30 AM</p>
-                <h3 class="event-tag-title" data-i18n="ev1_title">Ring Ceremony</h3>
+                <h3 class="event-tag-title" data-i18n="ev1_title">Faldan</h3>
             </div>
             <div class="event-media-wrap">
-                <img src="assets/ring-ceremony-final.png" alt="Ring Ceremony" loading="eager">
+                <img src="assets/faldan-done.png" alt="Faldan Ceremony" loading="eager">
             </div>
-            <div class="event-venue-card reveal reveal-delay-1">
-                <span class="event-venue-name" data-i18n="venue_text">Venue: Bandhavgarh Tiger Resort, Bandhavgarh, Umaria (M.P.)</span>
-                <a class="event-dir-btn" href="https://www.google.com/maps/search/?api=1&query=Bandhavgarh+Tiger+Resort+Bandhavgarh+Umaria+MP" target="_blank" rel="noopener noreferrer">
-                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                    <span data-i18n="view_maps">View on Maps</span>
-                </a>
+            <div class="event-theme-card reveal reveal-delay-1">
+                <div class="theme-pill-tag">
+                    <span class="theme-icon">✨</span>
+                    <span data-i18n="theme_badge">Theme</span>
+                </div>
+                <div class="event-theme-text" data-i18n="ev1_theme">Royal Festive Ethnic / Traditional Elegance</div>
             </div>
         </div>
         <div class="event-sep reveal"><div class="event-sep-line"></div><div class="event-sep-dot"></div><div class="event-sep-line"></div></div>
@@ -1781,17 +2027,17 @@
         <div class="event-block reveal">
             <div class="text-center mb-4">
                 <p class="event-subtitle" data-i18n="ev2_sub">November 29, 2026 | 1:00 PM</p>
-                <h3 class="event-tag-title" data-i18n="ev2_title">Haldi & Happiness Carnival</h3>
+                <h3 class="event-tag-title" data-i18n="ev2_title">Haldi &amp; Happiness Carnival</h3>
             </div>
             <div class="event-media-wrap">
                 <img src="assets/haldi-final.png" alt="Haldi and Happiness Carnival" loading="eager">
             </div>
-            <div class="event-venue-card reveal reveal-delay-1">
-                <span class="event-venue-name" data-i18n="venue_text">Venue: Bandhavgarh Tiger Resort, Bandhavgarh, Umaria (M.P.)</span>
-                <a class="event-dir-btn" href="https://www.google.com/maps/search/?api=1&query=Bandhavgarh+Tiger+Resort+Bandhavgarh+Umaria+MP" target="_blank" rel="noopener noreferrer">
-                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                    <span data-i18n="view_maps">View on Maps</span>
-                </a>
+            <div class="event-theme-card reveal reveal-delay-1">
+                <div class="theme-pill-tag">
+                    <span class="theme-icon">✨</span>
+                    <span data-i18n="theme_badge">Theme</span>
+                </div>
+                <div class="event-theme-text" data-i18n="ev2_theme">Lavender love / Shades of Pastel</div>
             </div>
         </div>
         <div class="event-sep reveal"><div class="event-sep-line"></div><div class="event-sep-dot"></div><div class="event-sep-line"></div></div>
@@ -1805,12 +2051,12 @@
             <div class="event-media-wrap">
                 <img src="assets/sangeet-final.png" alt="The Grand Sangeet Affair" loading="eager">
             </div>
-            <div class="event-venue-card reveal reveal-delay-1">
-                <span class="event-venue-name" data-i18n="venue_text">Venue: Bandhavgarh Tiger Resort, Bandhavgarh, Umaria (M.P.)</span>
-                <a class="event-dir-btn" href="https://www.google.com/maps/search/?api=1&query=Bandhavgarh+Tiger+Resort+Bandhavgarh+Umaria+MP" target="_blank" rel="noopener noreferrer">
-                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                    <span data-i18n="view_maps">View on Maps</span>
-                </a>
+            <div class="event-theme-card reveal reveal-delay-1">
+                <div class="theme-pill-tag">
+                    <span class="theme-icon">✨</span>
+                    <span data-i18n="theme_badge">Theme</span>
+                </div>
+                <div class="event-theme-text" data-i18n="ev3_theme">Glam and Glitterz</div>
             </div>
         </div>
         <div class="event-sep reveal"><div class="event-sep-line"></div><div class="event-sep-dot"></div><div class="event-sep-line"></div></div>
@@ -1819,17 +2065,17 @@
         <div class="event-block reveal">
             <div class="text-center mb-4">
                 <p class="event-subtitle" data-i18n="ev4_sub">November 30, 2026 | 11:30 AM Onwards</p>
-                <h3 class="event-tag-title" data-i18n="ev4_title">Baarat, One Forever & Reception</h3>
+                <h3 class="event-tag-title" data-i18n="ev4_title">Baarat, One Forever &amp; Reception</h3>
             </div>
             <div class="event-media-wrap">
                 <img src="assets/wedding-final.png" alt="Wedding Ceremony and Reception" loading="eager">
             </div>
-            <div class="event-venue-card reveal reveal-delay-1">
-                <span class="event-venue-name" data-i18n="venue_text">Venue: Bandhavgarh Tiger Resort, Bandhavgarh, Umaria (M.P.)</span>
-                <a class="event-dir-btn" href="https://www.google.com/maps/search/?api=1&query=Bandhavgarh+Tiger+Resort+Bandhavgarh+Umaria+MP" target="_blank" rel="noopener noreferrer">
-                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                    <span data-i18n="view_maps">View on Maps</span>
-                </a>
+            <div class="event-theme-card reveal reveal-delay-1">
+                <div class="theme-pill-tag">
+                    <span class="theme-icon">✨</span>
+                    <span data-i18n="theme_badge">Theme</span>
+                </div>
+                <div class="event-theme-text" data-i18n="ev4_theme">Maharaja and Maharani</div>
             </div>
         </div>
     </section>
@@ -1959,12 +2205,66 @@
         </div>
     </section>
 
+    <!-- VENUES & ACCOMMODATION (NIWAS) SECTION -->
+    <section id="venues-section">
+        <div class="text-center reveal">
+            <span class="section-label" data-i18n="venue_badge">Stay &amp; Accommodations</span>
+            <h2 class="section-heading" style="color:var(--terracotta)" data-i18n="venue_heading">Wedding<br>Venues &amp; Niwas</h2>
+            <div class="ornament mt-4">
+                <div class="ornament-line rev"></div>
+                <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24" style="color:var(--gold)"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+                <div class="ornament-line"></div>
+            </div>
+        </div>
+
+        <div class="niwas-cards-grid">
+            <!-- Box 1: Groom Niwas -->
+            <div class="niwas-card reveal">
+                <div class="niwas-badge groom">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L1 21h22L12 2zm0 3.8L19.5 19h-15L12 5.8z"/></svg>
+                    <span data-i18n="groom_niwas_title">Groom Niwas</span>
+                </div>
+                <h4 class="niwas-resort-name" data-i18n="groom_niwas_resort">Ashoka Jungle Resort</h4>
+                <p class="niwas-resort-address" data-i18n="groom_niwas_addr">Bandhavgarh, Umaria (M.P.)</p>
+                <a class="niwas-map-btn" href="https://www.google.com/maps/search/?api=1&query=Ashoka+Jungle+Resort+Bandhavgarh+Umaria+MP" target="_blank" rel="noopener noreferrer">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    <span data-i18n="view_map_btn">View Location on Maps</span>
+                </a>
+            </div>
+
+            <!-- Box 2: Bride Niwas -->
+            <div class="niwas-card reveal reveal-delay-1">
+                <div class="niwas-badge bride">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L1 21h22L12 2zm0 3.8L19.5 19h-15L12 5.8z"/></svg>
+                    <span data-i18n="bride_niwas_title">Bride Niwas</span>
+                </div>
+                <h4 class="niwas-resort-name" data-i18n="bride_niwas_resort">Bandhavgarh Tiger Resort</h4>
+                <p class="niwas-resort-address" data-i18n="bride_niwas_addr">Bandhavgarh, Umaria (M.P.)</p>
+                <a class="niwas-map-btn" href="https://www.google.com/maps/search/?api=1&query=Bandhavgarh+Tiger+Resort+Bandhavgarh+Umaria+MP" target="_blank" rel="noopener noreferrer">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    <span data-i18n="view_map_btn">View Location on Maps</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Venue Note -->
+        <div class="ceremonies-venue-note reveal reveal-delay-2">
+            <div class="note-icon-wrap">
+                <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+            </div>
+            <div class="note-text-content">
+                <strong class="note-tag" data-i18n="venue_note_tag">IMPORTANT NOTE</strong>
+                <p class="note-main-text" data-i18n="venue_note_text">Note: All Ceremonies will be held in Bandhavgarh Tiger Resort.</p>
+            </div>
+        </div>
+    </section>
+
     <!-- RSVP SECTION -->
     <section id="rsvp-section">
         <div class="text-center reveal">
             <span class="section-label" data-i18n="rsvp_badge">Join the Celebration</span>
             <h2 class="section-heading" style="color:var(--terracotta)" data-i18n="rsvp_heading">Celebrate<br>With Us</h2>
-            <p class="reveal reveal-delay-2 mt-4" style="font-style:italic;color:var(--text-light);font-size:1.15rem;margin-bottom:2.5rem;" data-i18n="rsvp_sub">Please grace us with your love and presence!</p>
+            <p class="reveal reveal-delay-2 mt-4" style="font-style:italic;color:var(--text-dark);font-size:1.35rem;font-weight:700;margin-bottom:2rem;" data-i18n="rsvp_sub">Please grace us with your love and presence!</p>
         </div>
 
         <form id="rsvp-form" class="rsvp-form">
@@ -1988,7 +2288,7 @@
 
             <div class="reveal reveal-delay-3" style="margin-top:2rem;">
                 <button type="submit" class="submit-btn" id="submit-btn">
-                    <span id="btn-text" data-i18n="submit_btn">Send Love & RSVP</span>
+                    <span id="btn-text" data-i18n="submit_btn">Send Love &amp; RSVP</span>
                     <svg id="btn-spinner" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;vertical-align:middle;margin-left:8px;" class="spin">
                         <circle cx="12" cy="12" r="10" stroke-opacity="0.25"/><path d="M12 2a10 10 0 0110 10" stroke-opacity="0.75"/>
                     </svg>
@@ -2010,13 +2310,19 @@
                 <span style="color:var(--gold-light);font-size:1.1rem;">♥</span>
                 <div style="height:1px;width:60px;background:var(--gold-light);"></div>
             </div>
-            <p style="font-style:italic;color:rgba(255,255,255,0.85);font-family:'Cormorant Garamond',serif;font-size:1.2rem;line-height:1.9;margin-top:2rem;padding:0 1.5rem;" data-i18n="footer_quote">
+            <p style="font-style:italic;color:rgba(255,255,255,0.9);font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;line-height:1.8;margin-top:2rem;padding:0 1.5rem;" data-i18n="footer_quote">
                 Two families, one sacred love story.<br>Thank you for showering your blessings upon us.
             </p>
-            <p style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:0.85rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-top:1.5rem;" data-i18n="footer_date">
+            <p style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:1.15rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-light);margin-top:1.5rem;" data-i18n="footer_date">
                 30th November 2026 · Bandhavgarh Tiger Resort
             </p>
-            <p style="font-style:italic;color:rgba(255,255,255,0.7);font-family:'Cormorant Garamond',serif;font-size:1.1rem;margin-top:0.75rem;">
+            <div style="margin-top:1.25rem;">
+                <a class="event-dir-btn" href="https://www.google.com/maps/search/?api=1&query=Bandhavgarh+Tiger+Resort+Bandhavgarh+Umaria+MP" target="_blank" rel="noopener noreferrer">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    <span data-i18n="view_maps">View Venue on Google Maps</span>
+                </a>
+            </div>
+            <p style="font-style:italic;color:rgba(255,255,255,0.85);font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:600;margin-top:1.5rem;">
                 #AtishayWedsShivani
             </p>
         </div>
@@ -2100,13 +2406,29 @@ const TRANSLATIONS = {
         events_badge: "The Celebration Unfolds",
         events_heading: "Wedding<br>Functions",
         ev1_sub: "November 29, 2026 | 11:30 AM",
-        ev1_title: "Ring Ceremony",
+        ev1_title: "Faldan",
+        ev1_theme: "Royal Festive Ethnic / Traditional Elegance",
         ev2_sub: "November 29, 2026 | 1:00 PM",
         ev2_title: "Haldi &amp; Happiness Carnival",
+        ev2_theme: "Lavender love / Shades of Pastel",
         ev3_sub: "November 29, 2026 | 7:00 PM",
         ev3_title: "The Grand Sangeet Affair",
+        ev3_theme: "Glam and Glitterz",
         ev4_sub: "November 30, 2026 | 11:30 AM Onwards",
         ev4_title: "Baarat, One Forever &amp; Reception",
+        ev4_theme: "Maharaja and Maharani",
+        theme_badge: "Theme",
+        venue_badge: "Stay &amp; Accommodations",
+        venue_heading: "Wedding<br>Venues &amp; Niwas",
+        groom_niwas_title: "Groom Niwas",
+        groom_niwas_resort: "Ashoka Jungle Resort",
+        groom_niwas_addr: "Bandhavgarh, Umaria (M.P.)",
+        bride_niwas_title: "Bride Niwas",
+        bride_niwas_resort: "Bandhavgarh Tiger Resort",
+        bride_niwas_addr: "Bandhavgarh, Umaria (M.P.)",
+        view_map_btn: "View Location on Maps",
+        venue_note_tag: "IMPORTANT NOTE",
+        venue_note_text: "Note: All Ceremonies will be held in Bandhavgarh Tiger Resort.",
         venue_text: "Venue: Bandhavgarh Tiger Resort, Bandhavgarh, Umaria (M.P.)",
         view_maps: "View on Maps",
         wardrobe_badge: "Dress The Part",
@@ -2120,7 +2442,7 @@ const TRANSLATIONS = {
         lbl_phone: "Mobile Number",
         card_note: "Leave Us a Note / Blessings",
         sub_note: "Share your heartfelt wishes for Atishay &amp; Shivani.",
-        submit_btn: "Send Love &amp; RSVP",
+        submit_btn: "Send Love & RSVP",
         footer_quote: "Two families, one sacred love story.<br>Thank you for showering your blessings upon us.",
         footer_date: "30th November 2026 · Bandhavgarh Tiger Resort"
     },
@@ -2176,13 +2498,29 @@ const TRANSLATIONS = {
         events_badge: "मांगलिक कार्यक्रम",
         events_heading: "विवाह उत्सव",
         ev1_sub: "२९ नवंबर २०२६ | प्रातः ११:३० बजे",
-        ev1_title: "मुद्रिका संस्कार (सगाई)",
+        ev1_title: "फलदान संस्कार",
+        ev1_theme: "रॉयल एथनिक / पारम्परिक पोशाक",
         ev2_sub: "२९ नवंबर २०२६ | दोपहर ०१:०० बजे",
         ev2_title: "हल्दी एवं उल्लास उत्सव",
+        ev2_theme: "लैवेंडर लव / शेड्स ऑफ पेस्टल",
         ev3_sub: "२९ नवंबर २०२६ | सायं ०७:०० बजे",
         ev3_title: "भव्य संगीत संध्या",
+        ev3_theme: "ग्लैम एंड ग्लिटर्ज़",
         ev4_sub: "३० नवंबर २०२६ | प्रातः ११:३० बजे से",
         ev4_title: "बारात, पाणिग्रहण एवं प्रीतिभोज",
+        ev4_theme: "महाराजा एंड महारानी",
+        theme_badge: "थीम / परिधान",
+        venue_badge: "आवास एवं निवास",
+        venue_heading: "विवाह स्थल<br>एवं निवास",
+        groom_niwas_title: "वर निवास (Groom Niwas)",
+        groom_niwas_resort: "अशोका जंगल रिसॉर्ट",
+        groom_niwas_addr: "बांधवगढ़, उमरिया (म.प्र.)",
+        bride_niwas_title: "वधु निवास (Bride Niwas)",
+        bride_niwas_resort: "बांधवगढ़ टाइगर रिसॉर्ट",
+        bride_niwas_addr: "बांधवगढ़, उमरिया (म.प्र.)",
+        view_map_btn: "गूगल मैप्स पर देखें",
+        venue_note_tag: "महत्वपूर्ण सूचना (Note)",
+        venue_note_text: "सूचना: समस्त मांगलिक कार्यक्रम बांधवगढ़ टाइगर रिसॉर्ट में संपन्न होंगे।",
         venue_text: "स्थान: बांधवगढ़ टाइगर रिसॉर्ट, बांधवगढ़, उमरिया (म.प्र.)",
         view_maps: "गूगल मैप्स पर देखें",
         wardrobe_badge: "परिधान शैली",
@@ -2203,13 +2541,13 @@ const TRANSLATIONS = {
         opt_pure: "शुद्ध शाकाहारी",
         card_events: "आप कौन-से कार्यक्रमों में शामिल होंगे?",
         sub_events: "जिन कार्यक्रमों में आप पधारेंगे उन्हें चुनें:",
-        ev1_chk: "मुद्रिका संस्कार (29 नवं, 11:30 AM)",
+        ev1_chk: "फलदान संस्कार (29 नवं, 11:30 AM)",
         ev2_chk: "हल्दी उत्सव (29 नवं, 1 PM)",
         ev3_chk: "भव्य संगीत संध्या (29 नवं, 7 PM)",
         ev4_chk: "बारात व प्रीतिभोज (30 नवं, 11:30 AM)",
         card_note: "अपना स्नेह / आशीर्वाद संदेश लिखें",
         sub_note: "शिवानी एवं अतिशय के लिए अपनी मंगलकामनाएं साझा करें।",
-        submit_btn: "शुभकामनाएं एवं उपस्थिति भेजें",
+        submit_btn: "शुभकामनाएं एवं RSVP भेजें",
         footer_quote: "दो परिवार, एक पवित्र परिणय सूत्र।<br>अपना मंगल आशीर्वाद देने के लिए आप सभी का हार्दिक धन्यवाद।",
         footer_date: "३० नवंबर २०२६ · बांधवगढ़ टाइगर रिसॉर्ट"
     },
@@ -2264,13 +2602,29 @@ const TRANSLATIONS = {
         events_badge: "માંગલિક પ્રસંગો",
         events_heading: "લગ્ન મહોત્સવ",
         ev1_sub: "૨૯ નવેમ્બર ૨૦૨૬ | સવારે ૧૧:૩૦ કલાકે",
-        ev1_title: "મુદ્રિકા સંસ્કાર (સગાઈ)",
+        ev1_title: "ફલદાન સંસ્કાર",
+        ev1_theme: "રોયલ એથનિક / પરંપરાગત પોશાક",
         ev2_sub: "૨૯ નવેમ્બર ૨૦૨૬ | બપોરે ૦૧:૦૦ કલાકે",
         ev2_title: "પીઠી તેમજ હળદર ઉત્સવ",
+        ev2_theme: "લેવેન્ડર લવ / શેડ્સ ઓફ પેસ્ટલ",
         ev3_sub: "૨૯ નવેમ્બર ૨૦૨૬ | સાંજે ૦૭:૦૦ કલાકે",
         ev3_title: "ભવ્ય સંગીત સંધ્યા",
+        ev3_theme: "ગ્લેમ એન્ડ ગ્લિટર",
         ev4_sub: "૩૦ નવેમ્બર ૨૦૨૬ | સવારે ૧૧:૩૦ કલાકેથી",
         ev4_title: "જાન આગમન, હસ્તમેળાપ તેમજ પ્રીતિભોજન",
+        ev4_theme: "મહારાજા એન્ડ મહારાણી",
+        theme_badge: "થીમ / પહેરવેશ",
+        venue_badge: "નિવાસ તેમજ વ્યવસ્થા",
+        venue_heading: "લગ્ન સ્થળ<br>અને નિવાસ",
+        groom_niwas_title: "વર નિવાસ (Groom Niwas)",
+        groom_niwas_resort: "અશોકા જંગલ રિસોર્ટ",
+        groom_niwas_addr: "બાંધવગઢ, ઉમરિયા (મ.પ્ર.)",
+        bride_niwas_title: "કન્યા નિવાસ (Bride Niwas)",
+        bride_niwas_resort: "બાંધવગઢ ટાઈગર રિસોર્ટ",
+        bride_niwas_addr: "બાંધવગઢ, ઉમરિયા (મ.પ્ર.)",
+        view_map_btn: "ગૂગલ મેપ્સ પર જુઓ",
+        venue_note_tag: "મહત્વપૂર્ણ નોંધ (Note)",
+        venue_note_text: "નોંધ: તમામ માંગલિક પ્રસંગો બાંધવગઢ ટાઈગર રિસોર્ટમાં યોજાશે.",
         venue_text: "સ્થળ: બાંધવગઢ ટાઈગર રિસોર્ટ, બાંધવગઢ, ઉમરિયા (મ.પ્ર.)",
         view_maps: "ગૂગલ મેપ્સ પર જુઓ",
         wardrobe_badge: "પરિધાન શૈલી",
@@ -2291,13 +2645,13 @@ const TRANSLATIONS = {
         opt_pure: "શુદ્ધ શાકાહારી",
         card_events: "આપ કયા પ્રસંગોમાં હાજરી આપશો?",
         sub_events: "જે પ્રસંગોમાં પધારવાના હોવ તે પસંદ કરો:",
-        ev1_chk: "મુદ્રિકા સંસ્કાર (29 નવે, 11:30 AM)",
+        ev1_chk: "ફલદાન સંસ્કાર (29 નવે, 11:30 AM)",
         ev2_chk: "હળદર ઉત્સવ (29 નવે, 1 PM)",
         ev3_chk: "ભવ્ય સંગીત સંધ્યા (29 નવે, 7 PM)",
         ev4_chk: "જાન અને પ્રીતિભોજન (30 નવે, 11:30 AM)",
         card_note: "આપનો સ્નેહ / આશીર્વાદ સંદેશ લખો",
         sub_note: "શિવાની તેમજ અતિશય માટે આપની મંગલકામનાઓ મોકલો.",
-        submit_btn: "શુભેચ્છાઓ તેમજ ઉપસ્થિતિ મોકલો",
+        submit_btn: "શુભેચ્છાઓ તેમજ RSVP મોકલો",
         footer_quote: "બે પરિવારો, એક પવિત્ર સ્નેહસૂત્ર.<br>આપના મંગલ આશીર્વાદ માટે આપ સૌનો હૃદયપૂર્વક આભાર.",
         footer_date: "૩૦ નવેમ્બર ૨૦૨૬ · બાંધવગઢ ટાઈગર રિસોર્ટ"
     },
@@ -2352,17 +2706,33 @@ const TRANSLATIONS = {
         events_badge: "मांगलिक काज",
         events_heading: "ब्याव उत्सव",
         ev1_sub: "२९ नवम्बर २०२६ | दिनुगै ११:३० बज्यां",
-        ev1_title: "मुद्रिका दस्तूर (सगाई)",
+        ev1_title: "फलदान दस्तूर",
+        ev1_theme: "रॉयल एथनिक / पारम्परिक पोशाक",
         ev2_sub: "२९ नवम्बर २०२६ | दुपहरी ०१:०० बज्यां",
         ev2_title: "पीठी अरु हल्दी रो रंग",
+        ev2_theme: "लैवेंडर लव / शेड्स ऑफ पेस्टल",
         ev3_sub: "२९ नवम्बर २०२६ | सांझ ०७:०० बज्यां",
         ev3_title: "रूड़ो संगीत संध्या",
+        ev3_theme: "ग्लैम अरु ग्लिटर्ज़",
         ev4_sub: "३० नवम्बर २०२६ | दिनुगै ११:३० बज्यां सूं",
         ev4_title: "बारात, फेरा (पाणिग्रहण) अरु मायरो/प्रीतिभोज",
+        ev4_theme: "महाराजा अरु महारानी",
+        theme_badge: "थीम / परिधान",
+        venue_badge: "निवास अरु व्यवस्था",
+        venue_heading: "ब्याव ठिकाणा<br>अरु निवास",
+        groom_niwas_title: "वर निवास (Groom Niwas)",
+        groom_niwas_resort: "अशोका जंगल रिसॉर्ट",
+        groom_niwas_addr: "बांधवगढ़, उमरिया (म.प्र.)",
+        bride_niwas_title: "धीवड़ी निवास (Bride Niwas)",
+        bride_niwas_resort: "बांधवगढ़ टाइगर रिसॉर्ट",
+        bride_niwas_addr: "बांधवगढ़, उमरिया (म.प्र.)",
+        view_map_btn: "गूगल मैप्स माथे देखो सा",
+        venue_note_tag: "खास बात (Note)",
+        venue_note_text: "खास बात: सगळा मांगलिक काज बांधवगढ़ टाइगर रिसॉर्ट में होवेगा सा।",
         venue_text: "ठिकाणो: बांधवगढ़ टाइगर रिसॉर्ट, बांधवगढ़, उमरिया (म.प्र.)",
         view_maps: "गूगल मैप्स माथे देखो सा",
         wardrobe_badge: "पहनाव रो सलीको",
-        wardrobe_heading: "पोशाक<br>मार्गदर्शिका",
+        wardrobe_heading: "पोशाક<br>मार्गदर्शिका",
         wardrobe_sub: "म्हारा उत्सवां खातर खास परिधान री झांकी",
         rsvp_badge: "म्हारै उत्सव में पधारो",
         rsvp_heading: "पधारबा री अरजी",
@@ -2379,13 +2749,13 @@ const TRANSLATIONS = {
         opt_pure: "शुद्ध शाकाहारी",
         card_events: "आप कैड़ा-कैड़ा काज में पधारस्यो?",
         sub_events: "जिण काज में पधारो, उण माथे टिक लगाइज्यो सा:",
-        ev1_chk: "मुद्रिका दस्तूर (29 नवं, 11:30 AM)",
+        ev1_chk: "फलदान दस्तूर (29 नवं, 11:30 AM)",
         ev2_chk: "हल्दी रो रंग (29 नवं, 1 PM)",
         ev3_chk: "रूड़ो संगीत संध्या (29 नवं, 7 PM)",
         ev4_chk: "बारात व प्रीतिभोज (30 नवं, 11:30 AM)",
         card_note: "आपरो हेत अरु आसीस लिखो सा",
         sub_note: "शिवानी अरु अतिशय खातर आपरा मन रो भाव लिखो सा।",
-        submit_btn: "आसीस अरु मनवार भेजो सा",
+        submit_btn: "आसीस अरु RSVP भेजो सा",
         footer_quote: "दो कुटुम्ब, एक पावन गठबंधन।<br>आपरी घणी आसीस खातर आप सगळां रो घणो-घणो आभार सा।",
         footer_date: "३० नवम्बर २०२६ · बांधवगढ़ टाइगर रिसॉर्ट"
     }
@@ -3057,7 +3427,7 @@ const modalWaLink = document.getElementById('modal-wa-link');
 rsvpForm.addEventListener('submit', (e) => {
     e.preventDefault();
     submitBtn.disabled = true; 
-    btnText.textContent = 'Submitting...'; 
+    btnText.textContent = 'Opening WhatsApp...'; 
     btnSpinner.style.display = 'inline';
 
     const formData = new FormData(e.target);
@@ -3065,40 +3435,56 @@ rsvpForm.addEventListener('submit', (e) => {
     const mobileNumber = formData.get('mobileNumber') || '';
     const note = formData.get('message') || '';
 
-    // Prepare WhatsApp message text
+    // Prepare direct WhatsApp message text for Groom Side (+91 9630732769)
     const waText = encodeURIComponent(
         `*Wedding RSVP for Atishay & Shivani*\n` +
-        `👤 *Name:* ${guestName}\n` +
-        `📞 *Phone:* ${mobileNumber}\n` +
-        (note ? `💌 *Blessings/Note:* ${note}\n` : '')
+        `━━━━━━━━━━━━━━━━━━━\n` +
+        `👤 *Guest Name:* ${guestName}\n` +
+        `📞 *Contact Number:* ${mobileNumber}\n` +
+        (note ? `💌 *Wishes / Blessings:* ${note}\n` : '') +
+        `━━━━━━━━━━━━━━━━━━━\n` +
+        `✨ Groom Side RSVP (+91 9630732769)`
     );
     const waUrl = `https://wa.me/919630732769?text=${waText}`;
     modalWaLink.href = waUrl;
 
+    // Direct WhatsApp redirect / opening
+    try {
+        const opened = window.open(waUrl, '_blank');
+        if (!opened || opened.closed || typeof opened.closed === 'undefined') {
+            window.location.href = waUrl;
+        }
+    } catch (_) {
+        window.location.href = waUrl;
+    }
+
     setTimeout(() => {
         submitBtn.disabled = false;
-        btnText.textContent = 'Send Love & RSVP';
+        const activeLang = document.documentElement.getAttribute('data-active-lang') || 'en';
+        btnText.textContent = (TRANSLATIONS[activeLang] && TRANSLATIONS[activeLang].submit_btn) || 'Send Love & RSVP';
         btnSpinner.style.display = 'none';
 
-        confetti({
-            particleCount: 50,
-            spread: 70,
-            origin: { y: 0.6 }
-        });
+        try {
+            confetti({
+                particleCount: 60,
+                spread: 80,
+                origin: { y: 0.6 }
+            });
+        } catch (_) {}
 
         showModal('success');
-    }, 600);
+    }, 450);
 });
 
 function showModal(type) {
     if (type === 'success') {
         modalTitle.textContent = 'Thank You!';
-        modalMsg.textContent = "We are deeply honored and can't wait to celebrate with you at Bandhavgarh Tiger Resort!";
+        modalMsg.textContent = "Your RSVP has been forwarded to WhatsApp (+91 9630732769 - Groom Side). If chat did not open automatically, please tap the button below:";
         modalSucc.style.display = ''; modalErr.style.display = 'none'; modalIcon.style.background = 'rgba(184,89,64,0.1)';
         modalWaLink.style.display = 'inline-flex';
     } else {
         modalTitle.textContent = 'Oops!';
-        modalMsg.textContent = 'There was an error submitting your RSVP. Please try reaching out directly on 9630732769.';
+        modalMsg.textContent = 'There was an issue opening WhatsApp. Please contact Groom Side directly at +91 9630732769.';
         modalSucc.style.display = 'none'; modalErr.style.display = ''; modalIcon.style.background = 'rgba(220,38,38,0.08)';
         modalWaLink.style.display = 'none';
     }
