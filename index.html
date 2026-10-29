@@ -1061,12 +1061,13 @@
         }
         .family-kids-line {
             font-family: 'Noto Serif Devanagari', 'Cormorant Garamond', serif;
-            font-size: 1.15rem;
+            font-size: clamp(0.88rem, 3.2vw, 1.02rem);
             color: var(--terra-dark);
             font-style: italic;
             font-weight: 600;
             margin-top: 0.35rem;
             line-height: 1.5;
+            opacity: 0.92;
         }
         .family-center-ampersand {
             display: flex;
@@ -1103,11 +1104,12 @@
         .event-subtitle {
             font-family: 'Cormorant Garamond', serif;
             font-weight: 700;
-            font-size: 1.28rem;
-            letter-spacing: 0.16em;
+            font-size: clamp(0.85rem, 3.6vw, 1.15rem);
+            letter-spacing: 0.07em;
             text-transform: uppercase;
             color: var(--terra-dark);
             margin-bottom: 0.75rem;
+            white-space: nowrap;
         }
         body:not(.light-theme) .event-subtitle { color: var(--gold-light); }
 
@@ -1144,11 +1146,11 @@
         }
         .theme-pill-tag {
             display: inline-flex; align-items: center; gap: 0.45rem;
-            padding: 0.3rem 0.95rem; border-radius: 9999px;
-            background: rgba(184, 89, 64, 0.12);
+            padding: 0.35rem 1.15rem; border-radius: 9999px;
+            background: rgba(184, 89, 64, 0.14);
             color: var(--terra-dark);
             font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: 0.88rem; font-weight: 800; letter-spacing: 0.22em;
+            font-size: 0.96rem; font-weight: 800; letter-spacing: 0.22em;
             text-transform: uppercase;
         }
         body:not(.light-theme) .theme-pill-tag {
@@ -1157,8 +1159,25 @@
         }
         .event-theme-text {
             font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: 1.45rem; font-weight: 700;
-            color: var(--text-dark); line-height: 1.35; letter-spacing: 0.02em;
+            font-size: clamp(1.35rem, 4.2vw, 1.6rem); font-weight: 800;
+            color: var(--terra-dark); line-height: 1.35; letter-spacing: 0.02em;
+        }
+        body:not(.light-theme) .event-theme-text {
+            color: var(--gold-light);
+        }
+        .event-theme-sub {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 1.18rem;
+            font-weight: 700;
+            font-style: italic;
+            color: var(--terra-dark);
+            opacity: 0.95;
+            margin-top: 0.15rem;
+            letter-spacing: 0.02em;
+        }
+        body:not(.light-theme) .event-theme-sub {
+            color: var(--gold-light);
+            opacity: 0.9;
         }
 
         .event-venue-card {
@@ -1186,7 +1205,7 @@
         .event-sep-dot  { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
 
         /* ============================================================
-           NIWAS & RESORT STAY SECTION
+           WEDDING VENUES & STAY SECTION
         ============================================================ */
         #venues-section {
             padding: 5rem 1.5rem 3.5rem;
@@ -1198,47 +1217,78 @@
             margin: 2.2rem auto 1.5rem;
             display: flex;
             flex-direction: column;
-            gap: 1.5rem;
+            gap: 1.75rem;
         }
         @media (min-width: 680px) {
             .niwas-cards-grid {
-                max-width: 760px;
+                max-width: 780px;
                 display: grid;
                 grid-template-columns: 1fr 1fr;
-                gap: 1.5rem;
+                gap: 1.75rem;
             }
         }
         .niwas-card {
-            background: rgba(255, 253, 248, 0.95);
-            border: 1.5px solid rgba(201, 150, 62, 0.4);
-            border-radius: 1.5rem;
-            padding: 2rem 1.5rem;
+            background: linear-gradient(165deg, rgba(255,255,255,0.98) 0%, rgba(255,252,246,0.96) 50%, rgba(255,246,236,0.98) 100%);
+            border: 1.5px solid rgba(201, 150, 62, 0.45);
+            border-radius: 1.6rem;
+            padding: 2.2rem 1.6rem 1.9rem;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: space-between;
-            gap: 0.9rem;
-            box-shadow: 0 10px 30px rgba(92, 34, 51, 0.08);
+            gap: 0.75rem;
+            box-shadow: 0 14px 38px rgba(92, 34, 51, 0.08), inset 0 0 0 1px rgba(201, 150, 62, 0.22);
             position: relative;
-            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            overflow: hidden;
+            transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+        }
+        .niwas-card::before {
+            content: '';
+            position: absolute;
+            inset: 7px;
+            border: 1px solid rgba(201, 150, 62, 0.28);
+            border-radius: calc(1.6rem - 7px);
+            pointer-events: none;
         }
         body:not(.light-theme) .niwas-card {
-            background: rgba(36, 25, 39, 0.95);
-            border-color: rgba(224, 168, 70, 0.4);
-            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.45);
+            background: linear-gradient(165deg, rgba(45, 30, 42, 0.98) 0%, rgba(36, 25, 39, 0.96) 100%);
+            border-color: rgba(224, 168, 70, 0.48);
+            box-shadow: 0 16px 42px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(224, 168, 70, 0.2);
+        }
+        body:not(.light-theme) .niwas-card::before {
+            border-color: rgba(224, 168, 70, 0.25);
         }
         .niwas-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 14px 40px rgba(92, 34, 51, 0.14);
+            transform: translateY(-4px);
+            box-shadow: 0 18px 46px rgba(92, 34, 51, 0.14), inset 0 0 0 1px rgba(201, 150, 62, 0.4);
+            border-color: rgba(201, 150, 62, 0.7);
+        }
+        .stay-card-crown {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(201,150,62,0.18), rgba(184,89,64,0.12));
+            border: 1px solid rgba(201,150,62,0.32);
+            color: var(--terracotta);
+            margin-bottom: 0.2rem;
+            box-shadow: 0 4px 12px rgba(201, 150, 62, 0.12);
+        }
+        body:not(.light-theme) .stay-card-crown {
+            background: rgba(224, 168, 70, 0.16);
+            border-color: rgba(224, 168, 70, 0.38);
+            color: var(--gold-light);
         }
         .niwas-badge {
             display: inline-flex;
             align-items: center;
             gap: 0.45rem;
-            padding: 0.35rem 1.1rem;
+            padding: 0.38rem 1.25rem;
             border-radius: 9999px;
             font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: 0.95rem;
+            font-size: 0.98rem;
             font-weight: 800;
             letter-spacing: 0.18em;
             text-transform: uppercase;
@@ -1246,30 +1296,44 @@
         .niwas-badge.groom {
             background: rgba(184, 89, 64, 0.14);
             color: var(--terra-dark);
-            border: 1px solid rgba(184, 89, 64, 0.28);
+            border: 1px solid rgba(184, 89, 64, 0.32);
         }
         body:not(.light-theme) .niwas-badge.groom {
-            background: rgba(224, 168, 70, 0.18);
+            background: rgba(224, 168, 70, 0.2);
             color: var(--gold-light);
-            border-color: rgba(224, 168, 70, 0.35);
+            border-color: rgba(224, 168, 70, 0.4);
         }
         .niwas-badge.bride {
-            background: rgba(201, 150, 62, 0.16);
+            background: rgba(201, 150, 62, 0.18);
             color: var(--terra-dark);
-            border: 1px solid rgba(201, 150, 62, 0.32);
+            border: 1px solid rgba(201, 150, 62, 0.35);
         }
         body:not(.light-theme) .niwas-badge.bride {
-            background: rgba(217, 138, 59, 0.2);
+            background: rgba(217, 138, 59, 0.22);
             color: var(--gold-light);
-            border-color: rgba(217, 138, 59, 0.35);
+            border-color: rgba(217, 138, 59, 0.4);
+        }
+        .stay-resort-label {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.24em;
+            text-transform: uppercase;
+            color: var(--terra-dark);
+            opacity: 0.85;
+            margin-top: 0.3rem;
+        }
+        body:not(.light-theme) .stay-resort-label {
+            color: var(--gold-light);
+            opacity: 0.85;
         }
         .niwas-resort-name {
             font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: 1.6rem;
+            font-size: clamp(1.48rem, 4.4vw, 1.85rem);
             font-weight: 700;
             color: var(--text-dark);
             line-height: 1.25;
-            margin-top: 0.2rem;
+            margin: 0.15rem 0 0.1rem;
         }
         .niwas-resort-address {
             font-family: 'Cormorant Garamond', Georgia, serif;
@@ -1277,7 +1341,30 @@
             font-weight: 600;
             font-style: italic;
             color: var(--text-dark);
-            opacity: 0.9;
+            opacity: 0.92;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.35rem;
+        }
+        .stay-card-sep {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.65rem;
+            width: 100%;
+            max-width: 180px;
+            margin: 0.35rem auto 0.45rem;
+            opacity: 0.7;
+        }
+        .stay-sep-line {
+            height: 1px;
+            flex: 1;
+            background: linear-gradient(to right, transparent, var(--gold), transparent);
+        }
+        .stay-sep-gem {
+            font-size: 0.68rem;
+            color: var(--gold);
         }
         .niwas-map-btn {
             display: inline-flex;
@@ -1285,19 +1372,20 @@
             justify-content: center;
             gap: 0.5rem;
             width: 100%;
-            padding: 0.85rem 1.25rem;
+            padding: 0.88rem 1.35rem;
             border-radius: 9999px;
             background: var(--terracotta);
             color: #ffffff !important;
             text-decoration: none;
             font-family: 'Cormorant Garamond', serif;
-            font-size: 0.92rem;
+            font-size: 0.94rem;
             font-weight: 700;
             letter-spacing: 0.14em;
             text-transform: uppercase;
             box-shadow: 0 4px 16px rgba(184, 89, 64, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             transition: all 0.25s ease;
-            margin-top: 0.5rem;
+            margin-top: 0.25rem;
         }
         .niwas-map-btn:hover {
             background: var(--terra-dark);
@@ -1938,29 +2026,29 @@
                                     <ellipse cx="230" cy="56" rx="34" ry="30" fill="url(#heartWarmGlow)" />
 
                                     <!-- Left flourish swash under Atishay -->
-                                    <path d="M 32,86 C 55,100 85,94 105,82" fill="none" stroke="url(#roseCopperGrad)" stroke-width="1.8" stroke-linecap="round"/>
+                                    <path d="M 32,86 C 55,100 85,94 105,82" fill="none" stroke="url(#roseCopperGrad)" stroke-width="2.2" stroke-linecap="round"/>
 
-                                    <!-- Atishay Text -->
-                                    <text x="126" y="74" text-anchor="middle" font-family="'Alex Brush', 'Great Vibes', cursive" font-size="48" fill="url(#roseCopperGrad)">Atishay</text>
+                                    <!-- Atishay Text (Bold Calligraphy like Forever) -->
+                                    <text x="126" y="74" text-anchor="middle" font-family="'Alex Brush', 'Great Vibes', cursive" font-size="52" font-weight="700" fill="url(#roseCopperGrad)" stroke="url(#roseCopperGrad)" stroke-width="0.8" paint-order="stroke fill">Atishay</text>
 
                                     <!-- Connecting Ribbon and Intertwined Heart -->
-                                    <path d="M 178,74 C 192,82 205,82 214,75 C 220,70 224,63 227,56" fill="none" stroke="url(#roseCopperGrad)" stroke-width="2" stroke-linecap="round"/>
+                                    <path d="M 178,74 C 192,82 205,82 214,75 C 220,70 224,63 227,56" fill="none" stroke="url(#roseCopperGrad)" stroke-width="2.4" stroke-linecap="round"/>
                                     
                                     <!-- The Big Romantic Central Heart -->
                                     <path d="M 230,88 C 216,73 194,54 198,39 C 201,28 213,28 221,37 C 224,40 227,45 230,48 C 233,45 236,40 239,37 C 247,28 259,28 262,39 C 266,54 244,73 230,88 Z"
-                                          fill="none" stroke="url(#roseCopperGrad)" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+                                          fill="none" stroke="url(#roseCopperGrad)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
 
                                     <!-- Fluid loop from heart to Shivani -->
-                                    <path d="M 233,56 C 236,63 240,70 246,75 C 255,82 268,82 282,74" fill="none" stroke="url(#roseCopperGrad)" stroke-width="2" stroke-linecap="round"/>
+                                    <path d="M 233,56 C 236,63 240,70 246,75 C 255,82 268,82 282,74" fill="none" stroke="url(#roseCopperGrad)" stroke-width="2.4" stroke-linecap="round"/>
 
-                                    <!-- Shivani Text -->
-                                    <text x="334" y="74" text-anchor="middle" font-family="'Alex Brush', 'Great Vibes', cursive" font-size="48" fill="url(#roseCopperGrad)">Shivani</text>
+                                    <!-- Shivani Text (Bold Calligraphy like Forever) -->
+                                    <text x="334" y="74" text-anchor="middle" font-family="'Alex Brush', 'Great Vibes', cursive" font-size="52" font-weight="700" fill="url(#roseCopperGrad)" stroke="url(#roseCopperGrad)" stroke-width="0.8" paint-order="stroke fill">Shivani</text>
 
                                     <!-- Heart dot over the 'i' of Shivani -->
-                                    <path d="M 376,44 C 376,41.5 373.5,39.5 371,39.5 C 369.5,39.5 368.2,40.5 367.5,41.8 C 366.8,40.5 365.5,39.5 364,39.5 C 361.5,39.5 359,41.5 359,44 C 359,47.8 367.5,53 367.5,53 C 367.5,53 376,47.8 376,44 Z" fill="none" stroke="url(#roseCopperGrad)" stroke-width="1.3"/>
+                                    <path d="M 376,44 C 376,41.5 373.5,39.5 371,39.5 C 369.5,39.5 368.2,40.5 367.5,41.8 C 366.8,40.5 365.5,39.5 364,39.5 C 361.5,39.5 359,41.5 359,44 C 359,47.8 367.5,53 367.5,53 C 367.5,53 376,47.8 376,44 Z" fill="none" stroke="url(#roseCopperGrad)" stroke-width="1.8"/>
 
                                     <!-- Right flourish after Shivani -->
-                                    <path d="M 382,80 C 400,92 418,88 436,76" fill="none" stroke="url(#roseCopperGrad)" stroke-width="1.8" stroke-linecap="round"/>
+                                    <path d="M 382,80 C 400,92 418,88 436,76" fill="none" stroke="url(#roseCopperGrad)" stroke-width="2.2" stroke-linecap="round"/>
                                 </svg>
                             </div>
 
@@ -2076,6 +2164,7 @@
                     <span data-i18n="theme_badge">Theme</span>
                 </div>
                 <div class="event-theme-text" data-i18n="ev4_theme">Maharaja and Maharani</div>
+                <div class="event-theme-sub" data-i18n="ev4_theme_sub">( Traditional Attire )</div>
             </div>
         </div>
     </section>
@@ -2159,9 +2248,9 @@
                     <p class="family-name-item highlight-parents" data-i18n="groom_parents">Smt. Kamlesh Jain &amp; Shri Ravindra Jain</p>
                 </div>
 
-                <!-- Brother, Sister & Family -->
+                <!-- Our Family -->
                 <div class="family-sub-group">
-                    <p class="family-group-title" data-i18n="bsf_label">Brother Sister and Family</p>
+                    <p class="family-group-title" data-i18n="bsf_label">Our Family</p>
                     <div class="family-names-list">
                         <p class="family-name-item">Smt. Ruby - Shailesh Jain</p>
                         <p class="family-name-item">Smt. Parul - Sachin Jain</p>
@@ -2190,9 +2279,9 @@
                     <p class="family-name-item highlight-parents" data-i18n="bride_parents">Smt. Shashi Jain &amp; Shri Jitendra Jain</p>
                 </div>
 
-                <!-- Brother, Sister & Family -->
+                <!-- Our Family -->
                 <div class="family-sub-group">
-                    <p class="family-group-title" data-i18n="bsf_label">Brother Sister and Family</p>
+                    <p class="family-group-title" data-i18n="bsf_label">Our Family</p>
                     <div class="family-names-list">
                         <p class="family-name-item">Smt. Madhu - Mahendra Jain</p>
                         <p class="family-name-item">Smt. Seema - Rajendra Jain</p>
@@ -2205,11 +2294,11 @@
         </div>
     </section>
 
-    <!-- VENUES & ACCOMMODATION (NIWAS) SECTION -->
+    <!-- VENUES & ACCOMMODATION SECTION -->
     <section id="venues-section">
         <div class="text-center reveal">
-            <span class="section-label" data-i18n="venue_badge">Stay &amp; Accommodations</span>
-            <h2 class="section-heading" style="color:var(--terracotta)" data-i18n="venue_heading">Wedding<br>Venues &amp; Niwas</h2>
+            <span class="section-label" data-i18n="venue_badge">Wedding Venues</span>
+            <h2 class="section-heading" style="color:var(--terracotta)" data-i18n="venue_heading">Wedding<br>Venues</h2>
             <div class="ornament mt-4">
                 <div class="ornament-line rev"></div>
                 <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24" style="color:var(--gold)"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
@@ -2218,28 +2307,52 @@
         </div>
 
         <div class="niwas-cards-grid">
-            <!-- Box 1: Groom Niwas -->
+            <!-- Box 1: Groom Stay -->
             <div class="niwas-card reveal">
-                <div class="niwas-badge groom">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L1 21h22L12 2zm0 3.8L19.5 19h-15L12 5.8z"/></svg>
-                    <span data-i18n="groom_niwas_title">Groom Niwas</span>
+                <div class="stay-card-crown">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M5 16L3 5l5.5 5L12 4l3.5 6L21 5l-2 11H5zm14 3c0 .6-.4 1-1 1H6c-.6 0-1-.4-1-1v-1h14v1z"/></svg>
                 </div>
+                <div class="niwas-badge groom">
+                    <span style="font-size:1.05rem;">⚜️</span>
+                    <span data-i18n="groom_niwas_title">Groom Stay</span>
+                </div>
+                <span class="stay-resort-label">Guest Accommodations</span>
                 <h4 class="niwas-resort-name" data-i18n="groom_niwas_resort">Ashoka Jungle Resort</h4>
-                <p class="niwas-resort-address" data-i18n="groom_niwas_addr">Bandhavgarh, Umaria (M.P.)</p>
+                <p class="niwas-resort-address">
+                    <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24" style="color:var(--terracotta);flex-shrink:0;"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    <span data-i18n="groom_niwas_addr">Bandhavgarh, Umaria (M.P.)</span>
+                </p>
+                <div class="stay-card-sep">
+                    <div class="stay-sep-line"></div>
+                    <span class="stay-sep-gem">♦</span>
+                    <div class="stay-sep-line"></div>
+                </div>
                 <a class="niwas-map-btn" href="https://www.google.com/maps/search/?api=1&query=Ashoka+Jungle+Resort+Bandhavgarh+Umaria+MP" target="_blank" rel="noopener noreferrer">
                     <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
                     <span data-i18n="view_map_btn">View Location on Maps</span>
                 </a>
             </div>
 
-            <!-- Box 2: Bride Niwas -->
+            <!-- Box 2: Bride Stay -->
             <div class="niwas-card reveal reveal-delay-1">
-                <div class="niwas-badge bride">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L1 21h22L12 2zm0 3.8L19.5 19h-15L12 5.8z"/></svg>
-                    <span data-i18n="bride_niwas_title">Bride Niwas</span>
+                <div class="stay-card-crown">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M5 16L3 5l5.5 5L12 4l3.5 6L21 5l-2 11H5zm14 3c0 .6-.4 1-1 1H6c-.6 0-1-.4-1-1v-1h14v1z"/></svg>
                 </div>
+                <div class="niwas-badge bride">
+                    <span style="font-size:1.05rem;">👑</span>
+                    <span data-i18n="bride_niwas_title">Bride Stay</span>
+                </div>
+                <span class="stay-resort-label">Guest Accommodations</span>
                 <h4 class="niwas-resort-name" data-i18n="bride_niwas_resort">Bandhavgarh Tiger Resort</h4>
-                <p class="niwas-resort-address" data-i18n="bride_niwas_addr">Bandhavgarh, Umaria (M.P.)</p>
+                <p class="niwas-resort-address">
+                    <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24" style="color:var(--terracotta);flex-shrink:0;"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    <span data-i18n="bride_niwas_addr">Bandhavgarh, Umaria (M.P.)</span>
+                </p>
+                <div class="stay-card-sep">
+                    <div class="stay-sep-line"></div>
+                    <span class="stay-sep-gem">♦</span>
+                    <div class="stay-sep-line"></div>
+                </div>
                 <a class="niwas-map-btn" href="https://www.google.com/maps/search/?api=1&query=Bandhavgarh+Tiger+Resort+Bandhavgarh+Umaria+MP" target="_blank" rel="noopener noreferrer">
                     <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
                     <span data-i18n="view_map_btn">View Location on Maps</span>
@@ -2385,7 +2498,7 @@ const TRANSLATIONS = {
         groom_side_badge: "Groom Team",
         groom_label: "The Dashing Groom",
         parents_label: "Parents",
-        bsf_label: "Brother Sister and Family",
+        bsf_label: "Our Family",
         bride_parents: "Smt. Shashi Jain &amp; Shri Jitendra Jain",
         groom_parents: "Smt. Kamlesh Jain &amp; Shri Ravindra Jain",
         blessings_from_label: "Seeking Blessings Of",
@@ -2417,13 +2530,14 @@ const TRANSLATIONS = {
         ev4_sub: "November 30, 2026 | 11:30 AM Onwards",
         ev4_title: "Baarat, One Forever &amp; Reception",
         ev4_theme: "Maharaja and Maharani",
+        ev4_theme_sub: "( Traditional Attire )",
         theme_badge: "Theme",
-        venue_badge: "Stay &amp; Accommodations",
-        venue_heading: "Wedding<br>Venues &amp; Niwas",
-        groom_niwas_title: "Groom Niwas",
+        venue_badge: "Wedding Venues",
+        venue_heading: "Wedding<br>Venues",
+        groom_niwas_title: "Groom Stay",
         groom_niwas_resort: "Ashoka Jungle Resort",
         groom_niwas_addr: "Bandhavgarh, Umaria (M.P.)",
-        bride_niwas_title: "Bride Niwas",
+        bride_niwas_title: "Bride Stay",
         bride_niwas_resort: "Bandhavgarh Tiger Resort",
         bride_niwas_addr: "Bandhavgarh, Umaria (M.P.)",
         view_map_btn: "View Location on Maps",
@@ -2477,7 +2591,7 @@ const TRANSLATIONS = {
         groom_side_badge: "Groom Team",
         groom_label: "हमारे चिरंजीव वर",
         parents_label: "माता-पिता",
-        bsf_label: "भाई-बहन एवं परिवार",
+        bsf_label: "हमारा परिवार (Our Family)",
         bride_parents: "श्रीमती शशि जैन एवं श्री जितेन्द्र जैन",
         groom_parents: "श्रीमती कमलेश जैन एवं श्री रवीन्द्र जैन",
         blessings_from_label: "परम पूज्य आशीर्वाद",
@@ -2509,13 +2623,14 @@ const TRANSLATIONS = {
         ev4_sub: "३० नवंबर २०२६ | प्रातः ११:३० बजे से",
         ev4_title: "बारात, पाणिग्रहण एवं प्रीतिभोज",
         ev4_theme: "महाराजा एंड महारानी",
+        ev4_theme_sub: "( पारंपरिक वेशभूषा / Traditional Attire )",
         theme_badge: "थीम / परिधान",
-        venue_badge: "आवास एवं निवास",
-        venue_heading: "विवाह स्थल<br>एवं निवास",
-        groom_niwas_title: "वर निवास (Groom Niwas)",
+        venue_badge: "विवाह स्थल",
+        venue_heading: "विवाह स्थल<br>Wedding Venues",
+        groom_niwas_title: "वर पक्ष व्यवस्था (Groom Stay)",
         groom_niwas_resort: "अशोका जंगल रिसॉर्ट",
         groom_niwas_addr: "बांधवगढ़, उमरिया (म.प्र.)",
-        bride_niwas_title: "वधु निवास (Bride Niwas)",
+        bride_niwas_title: "वधु पक्ष व्यवस्था (Bride Stay)",
         bride_niwas_resort: "बांधवगढ़ टाइगर रिसॉर्ट",
         bride_niwas_addr: "बांधवगढ़, उमरिया (म.प्र.)",
         view_map_btn: "गूगल मैप्स पर देखें",
@@ -2582,6 +2697,7 @@ const TRANSLATIONS = {
         groom_side_badge: "વર પક્ષ · જૈન પરિવાર",
         groom_label: "અમારા ચિરંજીવી વર",
         parents_label: "માતા-પિતા",
+        bsf_label: "અમારો પરિવાર (Our Family)",
         bride_parents: "શ્રીમતી શશી તેમજ શ્રી જિતેન્દ્ર જૈન",
         groom_parents: "શ્રીમતી કમલેશ તેમજ શ્રી રવિન્દ્ર જૈન",
         blessings_from_label: "પરમ પૂજ્ય આશીર્વાદ",
@@ -2613,13 +2729,14 @@ const TRANSLATIONS = {
         ev4_sub: "૩૦ નવેમ્બર ૨૦૨૬ | સવારે ૧૧:૩૦ કલાકેથી",
         ev4_title: "જાન આગમન, હસ્તમેળાપ તેમજ પ્રીતિભોજન",
         ev4_theme: "મહારાજા એન્ડ મહારાણી",
+        ev4_theme_sub: "( પારંપરિક પોશાક / Traditional Attire )",
         theme_badge: "થીમ / પહેરવેશ",
-        venue_badge: "નિવાસ તેમજ વ્યવસ્થા",
-        venue_heading: "લગ્ન સ્થળ<br>અને નિવાસ",
-        groom_niwas_title: "વર નિવાસ (Groom Niwas)",
+        venue_badge: "લગ્ન સ્થળ",
+        venue_heading: "લગ્ન સ્થળ<br>Wedding Venues",
+        groom_niwas_title: "વર પક્ષ વ્યવસ્થા (Groom Stay)",
         groom_niwas_resort: "અશોકા જંગલ રિસોર્ટ",
         groom_niwas_addr: "બાંધવગઢ, ઉમરિયા (મ.પ્ર.)",
-        bride_niwas_title: "કન્યા નિવાસ (Bride Niwas)",
+        bride_niwas_title: "કન્યા પક્ષ વ્યવસ્થા (Bride Stay)",
         bride_niwas_resort: "બાંધવગઢ ટાઈગર રિસોર્ટ",
         bride_niwas_addr: "બાંધવગઢ, ઉમરિયા (મ.પ્ર.)",
         view_map_btn: "ગૂગલ મેપ્સ પર જુઓ",
@@ -2686,6 +2803,7 @@ const TRANSLATIONS = {
         groom_side_badge: "वर पक्ष · जैन परिवार",
         groom_label: "म्हारो चिरंजीव बींद",
         parents_label: "माई-बाप",
+        bsf_label: "म्हारो परिवार (Our Family)",
         bride_parents: "श्रीमती शशि अरु श्री जितेन्द्र जैन",
         groom_parents: "श्रीमती कमलेश अरु श्री रवीन्द्र जैन",
         blessings_from_label: "परम आसीस",
@@ -2717,13 +2835,14 @@ const TRANSLATIONS = {
         ev4_sub: "३० नवम्बर २०२६ | दिनुगै ११:३० बज्यां सूं",
         ev4_title: "बारात, फेरा (पाणिग्रहण) अरु मायरो/प्रीतिभोज",
         ev4_theme: "महाराजा अरु महारानी",
+        ev4_theme_sub: "( पारंपरिक पहरावा / Traditional Attire )",
         theme_badge: "थीम / परिधान",
-        venue_badge: "निवास अरु व्यवस्था",
-        venue_heading: "ब्याव ठिकाणा<br>अरु निवास",
-        groom_niwas_title: "वर निवास (Groom Niwas)",
+        venue_badge: "ब्याव ठिकाणा",
+        venue_heading: "ब्याव ठिकाणा<br>Wedding Venues",
+        groom_niwas_title: "वर पक्ष व्यवस्था (Groom Stay)",
         groom_niwas_resort: "अशोका जंगल रिसॉर्ट",
         groom_niwas_addr: "बांधवगढ़, उमरिया (म.प्र.)",
-        bride_niwas_title: "धीवड़ी निवास (Bride Niwas)",
+        bride_niwas_title: "वधु पक्ष व्यवस्था (Bride Stay)",
         bride_niwas_resort: "बांधवगढ़ टाइगर रिसॉर्ट",
         bride_niwas_addr: "बांधवगढ़, उमरिया (म.प्र.)",
         view_map_btn: "गूगल मैप्स माथे देखो सा",
