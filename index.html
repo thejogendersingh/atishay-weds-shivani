@@ -1102,14 +1102,15 @@
             line-height: 1.1;
         }
         .event-subtitle {
-            font-family: 'Cormorant Garamond', serif;
+            font-family: 'Cormorant Garamond', Georgia, serif;
             font-weight: 700;
-            font-size: clamp(0.85rem, 3.6vw, 1.15rem);
-            letter-spacing: 0.07em;
+            font-size: clamp(1.15rem, 4.3vw, 1.42rem);
+            letter-spacing: 0.04em;
             text-transform: uppercase;
             color: var(--terra-dark);
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.65rem;
             white-space: nowrap;
+            text-align: center;
         }
         body:not(.light-theme) .event-subtitle { color: var(--gold-light); }
 
@@ -2106,7 +2107,7 @@
                     <span class="theme-icon">✨</span>
                     <span data-i18n="theme_badge">Theme</span>
                 </div>
-                <div class="event-theme-text" data-i18n="ev1_theme">Royal Festive Ethnic / Traditional Elegance</div>
+                <div class="event-theme-text" data-i18n="ev1_theme">Lavender Love / Shades of Pastel</div>
             </div>
         </div>
         <div class="event-sep reveal"><div class="event-sep-line"></div><div class="event-sep-dot"></div><div class="event-sep-line"></div></div>
@@ -2152,7 +2153,7 @@
         <!-- Function 4: Baarat, One Forever & The Grand Reception -->
         <div class="event-block reveal">
             <div class="text-center mb-4">
-                <p class="event-subtitle" data-i18n="ev4_sub">November 30, 2026 | 11:30 AM Onwards</p>
+                <p class="event-subtitle" data-i18n="ev4_sub">November 30, 2026 | 11:30 AM</p>
                 <h3 class="event-tag-title" data-i18n="ev4_title">Baarat, One Forever &amp; Reception</h3>
             </div>
             <div class="event-media-wrap">
@@ -2353,7 +2354,7 @@
                     <span class="stay-sep-gem">♦</span>
                     <div class="stay-sep-line"></div>
                 </div>
-                <a class="niwas-map-btn" href="https://www.google.com/maps/search/?api=1&query=Bandhavgarh+Tiger+Resort+Bandhavgarh+Umaria+MP" target="_blank" rel="noopener noreferrer">
+                <a class="niwas-map-btn" href="https://maps.app.goo.gl/TPfEfgREgRTBVffs6?g_st=iw" target="_blank" rel="noopener noreferrer">
                     <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
                     <span data-i18n="view_map_btn">View Location on Maps</span>
                 </a>
@@ -2430,7 +2431,7 @@
                 30th November 2026 · Bandhavgarh Tiger Resort
             </p>
             <div style="margin-top:1.25rem;">
-                <a class="event-dir-btn" href="https://www.google.com/maps/search/?api=1&query=Bandhavgarh+Tiger+Resort+Bandhavgarh+Umaria+MP" target="_blank" rel="noopener noreferrer">
+                <a class="event-dir-btn" href="https://maps.app.goo.gl/TPfEfgREgRTBVffs6?g_st=iw" target="_blank" rel="noopener noreferrer">
                     <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
                     <span data-i18n="view_maps">View Venue on Google Maps</span>
                 </a>
@@ -2520,14 +2521,14 @@ const TRANSLATIONS = {
         events_heading: "Wedding<br>Functions",
         ev1_sub: "November 29, 2026 | 11:30 AM",
         ev1_title: "Faldan",
-        ev1_theme: "Royal Festive Ethnic / Traditional Elegance",
+        ev1_theme: "Lavender Love / Shades of Pastel",
         ev2_sub: "November 29, 2026 | 1:00 PM",
         ev2_title: "Haldi &amp; Happiness Carnival",
         ev2_theme: "Lavender love / Shades of Pastel",
         ev3_sub: "November 29, 2026 | 7:00 PM",
         ev3_title: "The Grand Sangeet Affair",
         ev3_theme: "Glam and Glitterz",
-        ev4_sub: "November 30, 2026 | 11:30 AM Onwards",
+        ev4_sub: "November 30, 2026 | 11:30 AM",
         ev4_title: "Baarat, One Forever &amp; Reception",
         ev4_theme: "Maharaja and Maharani",
         ev4_theme_sub: "( Traditional Attire )",
@@ -2539,7 +2540,7 @@ const TRANSLATIONS = {
         groom_niwas_addr: "Bandhavgarh, Umaria (M.P.)",
         bride_niwas_title: "Bride Stay",
         bride_niwas_resort: "Bandhavgarh Tiger Resort",
-        bride_niwas_addr: "Bandhavgarh, Umaria (M.P.)",
+        bride_niwas_addr: "Near Tala Gate, Bandhavgarh (M.P.)",
         view_map_btn: "View Location on Maps",
         venue_note_tag: "IMPORTANT NOTE",
         venue_note_text: "Note: All Ceremonies will be held in Bandhavgarh Tiger Resort.",
@@ -2613,14 +2614,14 @@ const TRANSLATIONS = {
         events_heading: "विवाह उत्सव",
         ev1_sub: "२९ नवंबर २०२६ | प्रातः ११:३० बजे",
         ev1_title: "फलदान संस्कार",
-        ev1_theme: "रॉयल एथनिक / पारम्परिक पोशाक",
+        ev1_theme: "लैवेंडर लव / शेड्स ऑफ पेस्टल",
         ev2_sub: "२९ नवंबर २०२६ | दोपहर ०१:०० बजे",
         ev2_title: "हल्दी एवं उल्लास उत्सव",
         ev2_theme: "लैवेंडर लव / शेड्स ऑफ पेस्टल",
         ev3_sub: "२९ नवंबर २०२६ | सायं ०७:०० बजे",
         ev3_title: "भव्य संगीत संध्या",
         ev3_theme: "ग्लैम एंड ग्लिटर्ज़",
-        ev4_sub: "३० नवंबर २०२६ | प्रातः ११:३० बजे से",
+        ev4_sub: "३० नवंबर २०२६ | प्रातः ११:३० बजे",
         ev4_title: "बारात, पाणिग्रहण एवं प्रीतिभोज",
         ev4_theme: "महाराजा एंड महारानी",
         ev4_theme_sub: "( पारंपरिक वेशभूषा / Traditional Attire )",
@@ -2632,7 +2633,7 @@ const TRANSLATIONS = {
         groom_niwas_addr: "बांधवगढ़, उमरिया (म.प्र.)",
         bride_niwas_title: "वधु पक्ष व्यवस्था (Bride Stay)",
         bride_niwas_resort: "बांधवगढ़ टाइगर रिसॉर्ट",
-        bride_niwas_addr: "बांधवगढ़, उमरिया (म.प्र.)",
+        bride_niwas_addr: "निकट ताला गेट, बांधवगढ़ (म.प्र.)",
         view_map_btn: "गूगल मैप्स पर देखें",
         venue_note_tag: "महत्वपूर्ण सूचना (Note)",
         venue_note_text: "सूचना: समस्त मांगलिक कार्यक्रम बांधवगढ़ टाइगर रिसॉर्ट में संपन्न होंगे।",
@@ -2719,14 +2720,14 @@ const TRANSLATIONS = {
         events_heading: "લગ્ન મહોત્સવ",
         ev1_sub: "૨૯ નવેમ્બર ૨૦૨૬ | સવારે ૧૧:૩૦ કલાકે",
         ev1_title: "ફલદાન સંસ્કાર",
-        ev1_theme: "રોયલ એથનિક / પરંપરાગત પોશાક",
+        ev1_theme: "લેવેન્ડર લવ / શેડ્સ ઓફ પેસ્ટલ",
         ev2_sub: "૨૯ નવેમ્બર ૨૦૨૬ | બપોરે ૦૧:૦૦ કલાકે",
         ev2_title: "પીઠી તેમજ હળદર ઉત્સવ",
         ev2_theme: "લેવેન્ડર લવ / શેડ્સ ઓફ પેસ્ટલ",
         ev3_sub: "૨૯ નવેમ્બર ૨૦૨૬ | સાંજે ૦૭:૦૦ કલાકે",
         ev3_title: "ભવ્ય સંગીત સંધ્યા",
         ev3_theme: "ગ્લેમ એન્ડ ગ્લિટર",
-        ev4_sub: "૩૦ નવેમ્બર ૨૦૨૬ | સવારે ૧૧:૩૦ કલાકેથી",
+        ev4_sub: "૩૦ નવેમ્બર ૨૦૨૬ | સવારે ૧૧:૩૦ કલાકે",
         ev4_title: "જાન આગમન, હસ્તમેળાપ તેમજ પ્રીતિભોજન",
         ev4_theme: "મહારાજા એન્ડ મહારાણી",
         ev4_theme_sub: "( પારંપરિક પોશાક / Traditional Attire )",
@@ -2738,7 +2739,7 @@ const TRANSLATIONS = {
         groom_niwas_addr: "બાંધવગઢ, ઉમરિયા (મ.પ્ર.)",
         bride_niwas_title: "કન્યા પક્ષ વ્યવસ્થા (Bride Stay)",
         bride_niwas_resort: "બાંધવગઢ ટાઈગર રિસોર્ટ",
-        bride_niwas_addr: "બાંધવગઢ, ઉમરિયા (મ.પ્ર.)",
+        bride_niwas_addr: "તાલા ગેટ પાસે, બાંધવગઢ (મ.પ્ર.)",
         view_map_btn: "ગૂગલ મેપ્સ પર જુઓ",
         venue_note_tag: "મહત્વપૂર્ણ નોંધ (Note)",
         venue_note_text: "નોંધ: તમામ માંગલિક પ્રસંગો બાંધવગઢ ટાઈગર રિસોર્ટમાં યોજાશે.",
@@ -2825,14 +2826,14 @@ const TRANSLATIONS = {
         events_heading: "ब्याव उत्सव",
         ev1_sub: "२९ नवम्बर २०२६ | दिनुगै ११:३० बज्यां",
         ev1_title: "फलदान दस्तूर",
-        ev1_theme: "रॉयल एथनिक / पारम्परिक पोशाक",
+        ev1_theme: "लैवेंडर लव / शेड्स ऑफ पेस्टल",
         ev2_sub: "२९ नवम्बर २०२६ | दुपहरी ०१:०० बज्यां",
         ev2_title: "पीठी अरु हल्दी रो रंग",
         ev2_theme: "लैवेंडर लव / शेड्स ऑफ पेस्टल",
         ev3_sub: "२९ नवम्बर २०२६ | सांझ ०७:०० बज्यां",
         ev3_title: "रूड़ो संगीत संध्या",
         ev3_theme: "ग्लैम अरु ग्लिटर्ज़",
-        ev4_sub: "३० नवम्बर २०२६ | दिनुगै ११:३० बज्यां सूं",
+        ev4_sub: "३० नवम्बर २०२६ | दिनुगै ११:३० बज्यां",
         ev4_title: "बारात, फेरा (पाणिग्रहण) अरु मायरो/प्रीतिभोज",
         ev4_theme: "महाराजा अरु महारानी",
         ev4_theme_sub: "( पारंपरिक पहरावा / Traditional Attire )",
@@ -2844,7 +2845,7 @@ const TRANSLATIONS = {
         groom_niwas_addr: "बांधवगढ़, उमरिया (म.प्र.)",
         bride_niwas_title: "वधु पक्ष व्यवस्था (Bride Stay)",
         bride_niwas_resort: "बांधवगढ़ टाइगर रिसॉर्ट",
-        bride_niwas_addr: "बांधवगढ़, उमरिया (म.प्र.)",
+        bride_niwas_addr: "ताला गेट कने, बांधवगढ़ (म.प्र.)",
         view_map_btn: "गूगल मैप्स माथे देखो सा",
         venue_note_tag: "खास बात (Note)",
         venue_note_text: "खास बात: सगळा मांगलिक काज बांधवगढ़ टाइगर रिसॉर्ट में होवेगा सा।",
